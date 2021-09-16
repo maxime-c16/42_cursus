@@ -6,7 +6,7 @@
 /*   By: maximecauchy <maximecauchy@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 21:13:59 by maximecauch       #+#    #+#             */
-/*   Updated: 2021/08/16 21:28:36 by maximecauch      ###   ########.fr       */
+/*   Updated: 2021/09/16 14:55:28 by maximecauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	str = ft_fill_str(str, buff, len);
+	str[len] = '\0';
 	return (str);
 }
