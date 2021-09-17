@@ -1,68 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   itoa.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maximecauchy <maximecauchy@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/16 21:13:59 by maximecauch       #+#    #+#             */
-/*   Updated: 2021/09/16 14:57:58 by maximecauch      ###   ########.fr       */
+/*   Created: 2021/09/17 09:01:39 by maximecauch       #+#    #+#             */
+/*   Updated: 2021/09/17 13:42:48 by maximecauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-static int	ft_intlen(long long int n)
+int	ft_len(int nb)
 {
-	long long int	i;
+	int	size;
 
-	i = 1;
-	if (n < 0)
-		n *= -1;
-	while (n >= 10)
+	size = 0;
+	if (nb < 0)
 	{
-		n = n / 10;
-		i++;
+		nb = nb * -1;
+		size++;
 	}
-	return (i);
-}
-
-static char	*ft_fill_str(char *str, long long int n, int len)
-{
-	int		start;
-
-	str[len] = 0;
-	len -= 1;
-	if (n < 0)
+	while (nb > 0)
 	{
-		n *= -1;
-		start = 1;
-		str[0] = '-';
+		size++;
+		nb = nb / 10;
 	}
-	else
-		start = 0;
-	while (len >= start)
-	{
-		str[len] = n % 10 + '0';
-		n /= 10;
-		len--;
-	}
-	return (str);
+	return (size);
 }
 
 char	*ft_itoa(int n)
 {
-	char			*str;
-	int				len;
-	long long int	buff;
+	char	*str;
+	int		len;
 
-	buff = n;
-	len = ft_intlen(buff);
-	if (buff < 0)
-		len = len + 1;
-	str = malloc(len);
+	len = ft_len(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (!str)
 		return (NULL);
-	str = ft_fill_str(str, buff, len);
+	str[n - 1] = '\0';
+	if (n == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
+	if (n < 0)
+	{
+		str[0] = '-';
+		n *= -1;
+	}
+	while (n > 0)
+	{
+		len--;
+		str[len] = 48 + (n % 10);
+		n /= 10;
+	}
 	return (str);
 }
