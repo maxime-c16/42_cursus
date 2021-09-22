@@ -6,20 +6,17 @@
 /*   By: maximecauchy <maximecauchy@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 09:01:39 by maximecauch       #+#    #+#             */
-/*   Updated: 2021/09/18 13:27:12 by maximecauch      ###   ########.fr       */
+/*   Updated: 2021/09/22 17:15:40 by maximecauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
-#include "limits.h"
 
-int	ft_len(int nb)
+long	ft_len(long nb)
 {
-	int	size;
+	long	size;
 
 	size = 0;
-	if (nb == -2147483648)
-		return (11);
 	if (nb == 0)
 		return (1);
 	if (nb < 0)
@@ -35,46 +32,32 @@ int	ft_len(int nb)
 	return (size);
 }
 
-char	*ft_intmin(char *str)
-{
-	str = "-2147483648\0";
-	return (str);
-}
-
 char	*ft_itoa(int n)
 {
 	char	*str;
-	int		len;
+	long	len_n;
+	long	len;
 
-	len = ft_len(n);
-	if (!(str = (char *)malloc(sizeof(char) * (ft_len(n) + 1))))
+	len_n = (long)n;
+	len = ft_len(len_n);
+	if (!(str = (char *)malloc(sizeof(char) * (ft_len(len_n) + 1))))
 		return (NULL);
 	str[len] = '\0';
-	if (n == -2147483648)
-		return (ft_intmin(str));
-	if (n == 0)
+	if (len_n == 0)
 	{
 		str = "0\0";
 		return (str);
 	}
-	if (n < 0)
+	if (len_n < 0)
 	{
 		str[0] = '-';
-		n *= -1;
+		len_n *= -1;
 	}
-	while (n > 0)
+	while (len_n > 0)
 	{
 		len--;
-		str[len] = 48 + (n % 10);
-		n /= 10;
+		str[len] = 48 + (len_n % 10);
+		len_n /= 10;
 	}
 	return (str);
 }
-
-/*
-int	main()
-{
-	printf("%s\n", ft_itoa(INT_MIN));
-	return 0;
-}
-*/
