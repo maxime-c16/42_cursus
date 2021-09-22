@@ -6,13 +6,13 @@
 /*   By: maximecauchy <maximecauchy@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 09:01:39 by maximecauch       #+#    #+#             */
-/*   Updated: 2021/09/22 17:24:04 by maximecauch      ###   ########.fr       */
+/*   Updated: 2021/09/22 17:31:19 by maximecauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-long	ft_len(long nb)
+static long	ft_len(long nb)
 {
 	long	size;
 
