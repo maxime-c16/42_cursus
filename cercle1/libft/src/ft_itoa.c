@@ -6,7 +6,7 @@
 /*   By: maximecauchy <maximecauchy@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 09:01:39 by maximecauch       #+#    #+#             */
-/*   Updated: 2021/09/22 17:15:40 by maximecauch      ###   ########.fr       */
+/*   Updated: 2021/09/22 17:24:04 by maximecauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,12 @@ char	*ft_itoa(int n)
 
 	len_n = (long)n;
 	len = ft_len(len_n);
-	if (!(str = (char *)malloc(sizeof(char) * (ft_len(len_n) + 1))))
+	str = (char *)malloc(sizeof(char) * (ft_len(len_n) + 1));
+	if (!(str))
 		return (NULL);
 	str[len] = '\0';
 	if (len_n == 0)
-	{
-		str = "0\0";
-		return (str);
-	}
+		str[0] = 0 + '0';
 	if (len_n < 0)
 	{
 		str[0] = '-';
