@@ -50,7 +50,8 @@ int	get_next_line(int fd, char **line)
 	char		buffer[BUFF_SIZE + 1];
 
 	ret = BUFF_SIZE;
-	str = (char *)malloc(sizeof(char) * (BUFF_SIZE + 1));
+	if (!str)
+		str = (char *)malloc(sizeof(char) * (BUFF_SIZE + 1));
 	if (fd <= 0 || !line)
 		return (-1);
 	while (ret > 0)
