@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maximecauchy <maximecauchy@student.42.f    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/10/17 14:54:35 by maximecauch       #+#    #+#             */
+/*   Updated: 2021/10/26 21:53:51 by maximecauch      ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/libft.h"
 #include "get_next_line.h"
 
@@ -68,24 +80,19 @@ char	*get_next_line(int fd)
 	temp = str;
 	str = ft_droite(temp);
 	free(temp);
-	//printf("%s\n", line);
 	return (line);
 }
 
-int    main()
+int	main()
 {
-    int        fd;
-    int        ret;
-    char    *line;
-	int i = 0;
+	int		fd;
+	char	*line;
 
-    fd = open("multiple_line_no_nl", 0);
-    line = get_next_line(fd);
-    printf("%s\n", line);
-    while (i++ > 50)
-    {
-        line = get_next_line(fd);
-        printf("%s\n", line);
-    }
-    return (0);
+	fd = open("gnlTester/files/multiple_line_no_nl", 0);
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s\n", line);
+		free(line);
+	}
+	return (0);
 }
