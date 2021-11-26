@@ -31,6 +31,6 @@ int main()
     int res;
 
     res = ft_printf("maxime %s %c %d \ncauchy", "tst str", 'a', 10);
-    //printf("\nres = %d", res);
+    ft_printf("\nres = %d", res);
     return (0);
 }
