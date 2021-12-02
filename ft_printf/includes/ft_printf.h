@@ -10,6 +10,7 @@
 # include "../libft/libft.h"
 
 int		ft_printf(const char *str, ...);
+void	ft_putchar(char c);
 char	*ft_first_parsing(char *str);
 int		ft_strlen_arg(char *str);
 int		ft_putnbr_base_pf(unsigned int nb, char *base);

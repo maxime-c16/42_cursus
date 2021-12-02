@@ -29,8 +29,7 @@ int		ft_printf(char const *str, ...)
 int main()
 {
 		int		res;
-		char	*ptr = "max";
 
-		res = ft_printf("maxime %p cauchy", ptr);
+		res = ft_printf("maxime %d cauchy", 16);
 		return (0);
 }
