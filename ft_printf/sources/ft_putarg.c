@@ -12,5 +12,7 @@ int	ft_putarg(char *str, int index, va_list args)
 		return (ft_printstr(args));
 	else if (str[index] == 'p')
 		return (ft_printptr(args));
+	else if (str[index] == 'u')
+		return (ft_putunsigend(args));
 	return (0);
 }

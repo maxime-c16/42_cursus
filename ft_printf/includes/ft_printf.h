@@ -14,6 +14,7 @@ char	*ft_first_parsing(char *str);
 int		ft_strlen_arg(char *str);
 int		ft_putnbr_base_pf(unsigned int nb, char *base);
 int		ft_putnbr_hex(unsigned int nbr, char *base);
+int		ft_putnbr_db_pf(unsigned int nb);
 int		ft_putnbr_pf(int nb);
 int		ft_putstr_pf(const char *str);
 int		ft_puthex(va_list args);

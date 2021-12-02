@@ -33,3 +33,14 @@ int	ft_puthex(va_list args)
 	wrdcnt += ft_putnbr_base_pf(hexval, "0123456789abcdef");
 	return (wrdcnt);
 }
+
+int	ft_putunsigned(va_list args)
+{
+	int				wrdcnt;
+	unsigned int	uval;
+
+	wrdcnt = 0;
+	uval = (unsigned int)va_arg(args, unsigned int);
+	wrdcnt += ft_putnbr_db_pf(uval);
+	return (wrdcnt);
+}
