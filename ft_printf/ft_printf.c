@@ -1,11 +1,11 @@
 #include "includes/ft_printf.h"
 
-int		ft_printf(char const *str, ...)
+int	ft_printf(char const *str, ...)
 {
 	int		i;
 	int		wrdcnt;
+	va_list	args;
 
-	va_list args;
 	i = 0;
 	wrdcnt = 0;
 	va_start(args, str);
@@ -24,12 +24,4 @@ int		ft_printf(char const *str, ...)
 		}
 	}
 	return (wrdcnt);
-}
-
-int main()
-{
-		int		res;
-
-		res = ft_printf("maxime %d cauchy", 16);
-		return (0);
 }

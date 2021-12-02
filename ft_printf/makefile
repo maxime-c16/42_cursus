@@ -1,6 +1,6 @@
 SRCS 	=	sources/*.c *.c
 
-OBJS 	=	$(SRCS:.c=.o)
+OBJS 	=	*.o
 
 NAME 	=	libftprintf.a
 

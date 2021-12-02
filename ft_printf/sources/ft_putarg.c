@@ -13,6 +13,11 @@ int	ft_putarg(char *str, int index, va_list args)
 	else if (str[index] == 'p')
 		return (ft_printptr(args));
 	else if (str[index] == 'u')
-		return (ft_putunsigend(args));
+		return (ft_putunsigned(args));
+	else if (str[index] == '%')
+	{
+		ft_putchar('%');
+		return (1);
+	}
 	return (0);
 }
