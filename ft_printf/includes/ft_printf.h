@@ -7,7 +7,6 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include "../libft/libft.h"
 
 int		ft_printf(const char *str, ...);
 void	ft_putchar(char c);
