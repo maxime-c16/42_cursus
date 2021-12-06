@@ -35,7 +35,6 @@ lives	**parse_life(const char *str, lives **tab)
 	x = 0;
 	y = 0;
 	odd = 0;
-
 	buffer = ft_split((char *)str, ". ");
 	while (buffer[i])
 	{

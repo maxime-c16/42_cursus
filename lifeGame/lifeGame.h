@@ -3,7 +3,7 @@
 # define LIFEGAME_H
 
 //# define WINDOW_SIZE 10
-# define ALIVE_SYMBOL '1'
+# define ALIVE_SYMBOL '0'
 # define DEATH_SYMBOL '-'
 
 # include <unistd.h>

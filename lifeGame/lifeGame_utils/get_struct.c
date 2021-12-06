@@ -73,8 +73,8 @@ lives	get_pos(lives pos, unsigned int x, unsigned int y, lives **tab)
 
 lives	**get_struc(lives **tab)
 {
-	int	cmp;
-	lives cpy;
+	int		cmp;
+	lives	cpy;
 
 	for (unsigned int x = 0; x < WINDOW_SIZE; x++)
 	{
