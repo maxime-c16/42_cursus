@@ -84,10 +84,4 @@ void	ft_print_tab(lives **tab)
 			printf(" %c ",tab[i][j].state);
 		printf("\n");
 	}
-	/*for (int i = 0; i < WINDOW_SIZE; i++)
-	{
-		for (int j = 0; j < WINDOW_SIZE; j++)
-			printf(" %d ", check_survive(tab[i][j]));
-		printf("\n");
-	}*/
 }
