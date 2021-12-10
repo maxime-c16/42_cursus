@@ -43,7 +43,7 @@ lives	**get_struc(lives **tab);
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(lives *b, size_t n);
 void	ft_print_tab(lives **tab);
-int		ft_get_size_parse(const char *str);
 int		ft_isdigit(int c);
+int		check_arg(char **str);
 
 #endif

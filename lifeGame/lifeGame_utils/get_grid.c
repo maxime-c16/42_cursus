@@ -7,22 +7,6 @@ int	ft_isdigit(int c)
 	return (0);
 }
 
-int		ft_get_size_parse(const char *str)
-{
-	int		i;
-	int		cnt;
-
-	i = 0;
-	cnt = 0;
-	while (str[i])
-	{
-		if (ft_isdigit(str[i]))
-			cnt++;
-		i++;
-	}
-	return (cnt);
-}
-
 lives	**parse_life(const char *str, lives **tab)
 {
 	int		i;
@@ -36,6 +20,10 @@ lives	**parse_life(const char *str, lives **tab)
 	y = 0;
 	odd = 0;
 	buffer = ft_split((char *)str, ". ");
+	if (check_arg(buffer) == 0)
+		return (NULL);
+	else
+		printf("\nargs are safe ...\n");
 	while (buffer[i])
 	{
 		if (odd % 2 == 0)

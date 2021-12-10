@@ -10,10 +10,10 @@ int	main(int ac, char **av)
 	tab = parse_life(av[1], tab);
 	tab = get_struc(tab);
 	printf("\nNombres d'iterations :\t%d\n", i);
-	i++;
 	ft_print_tab(tab);
 	printf("\n\n\n\n");
 	sleep(1);
+	i++;
 	while (true)
 	{
 		printf("\nNombres d'iterations :\t%d\n", i);
