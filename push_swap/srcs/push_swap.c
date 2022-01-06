@@ -45,9 +45,13 @@ void	push_swap(int ac, char **av)
 	else if (ac > 2)
 		ft_parse_int(&stack_a, av, ac);
 	ft_print_lst(&stack_a, &stack_b);
-	printf("\nrotating...\n");
 	ft_rotate_stck(&stack_a);
 	ft_print_lst(&stack_a, &stack_b);
+	ft_rotate_stck(&stack_a);
+	ft_print_lst(&stack_a, &stack_b);
+	ft_swap_stck(&stack_a);
+	ft_print_lst(&stack_a, &stack_b);
+	return ;
 }
 
 int	main(int ac, char **av)

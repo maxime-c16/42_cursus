@@ -37,17 +37,21 @@ void	ft_parse_fill(t_stack **stack, char *str)
 
 	i = 0;
 	split = ft_split(str, ' ');
-	num = ft_atoi(split[i]);
-	printf("num = %d\n", num);
-	ft_init_lst(stack, num);
 	if (!split[1])
+	{
+		ft_init_lst(stack, ft_atoi(str));
 		return ;
-	while (split[i++])
+	}
+	num = ft_atoi(split[i]);
+	ft_init_lst(stack, num);
+	i = 1;
+	while (split[i + 1])
 	{
 		num = ft_atoi(split[i]);
 		printf("num = %d\n", num);
 		ft_check_int(num);
 		ft_lstadd_back(stack, num);
+		i++;
 	}
 	return ;
 }

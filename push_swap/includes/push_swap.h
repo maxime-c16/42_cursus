@@ -47,4 +47,8 @@ void	ft_rotate_stck(t_stack **stack);
 void	ft_push_stck(t_stack **stack_a, t_stack **stack_b);
 void	ft_del_one(t_stack **stack);
 
+//swap functions
+
+void	ft_swap_stck(t_stack **stack);
+
 #endif
