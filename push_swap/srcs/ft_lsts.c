@@ -1,6 +1,6 @@
 #include "../includes/push_swap.h"
 
-void	ft_init_lst(t_stack **stack, int nb)
+void	ft_init_lst(t_stack **stack, long nb)
 {
 	*stack = (t_stack *)malloc(sizeof(*stack));
 	if (*stack == NULL)
@@ -48,22 +48,13 @@ void	ft_lstadd_back(t_stack **stack, int nb)
 		cpy = cpy->next;
 	cpy->next = tmp;
 	tmp->prev = cpy;
-	printf("int push sur stack: %d\n", cpy->next->num);
+	return ;
 }
 
-void	ft_lstadd_back_r(t_stack **stack)
+void	ft_lstadd_front(t_stack **stack, t_stack *elem)
 {
-	t_stack	*temp1;
-	t_stack	*temp2;
-
-	temp1 = NULL;
-	temp1 = *stack;
-	temp2 = (*stack)->prev;
-	while (temp1->next)
-		temp1 = temp1->next;
-	temp1->next = temp2;
-	temp1->next->prev = temp1;
-	temp1->next->next = NULL;
-	write(1, "test\n", 6);
+	if (*stack)
+		elem->next = *stack;
+	*stack = elem;
 	return ;
 }

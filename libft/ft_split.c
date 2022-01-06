@@ -6,7 +6,7 @@
 /*   By: maximecauchy <maximecauchy@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/16 19:41:07 by maximecauch       #+#    #+#             */
-/*   Updated: 2021/11/11 17:01:11 by maximecauch      ###   ########.fr       */
+/*   Updated: 2022/01/06 09:50:33 by maximecauch      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,3 @@ char	**ft_split(char const *s, char c)
 	}
 	return (tab);
 }
-
-/*int main()
-{
-	char	*str = "      split       this for   me  !       ";
-	char	**res;
-
-	res = ft_split(str, ' ');
-	while (*res)
-	{
-		printf("%s\n", *res);
-		res++;
-	}
-	return 0;
-}
-*/

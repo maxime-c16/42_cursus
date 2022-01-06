@@ -20,7 +20,7 @@ void	ft_rotate_stck(t_stack **stack)
 	if (*stack && (*stack)->next)
 	{
 		*stack = (*stack)->next;
-		ft_lstadd_back_r(stack);
+		ft_back_r(stack);
 	}
 	return ;
 }
