@@ -6,6 +6,7 @@ int	main(void)
 	void	*mlx;
 
 	mlx = mlx_init();
-	img = mlx_new_image(mlx, 1920, 1080);
+	img = mlx_new_window(mlx, 1920, 1080, "max");
+	mlx_loop(mlx);
 	return 0;
 }

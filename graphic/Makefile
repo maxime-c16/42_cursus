@@ -1,16 +1,15 @@
-SRCS 	=	*.c
+SRCS 	=	graphic.c
 
-OBJS	=	${SRC:%.c=%.o}
+OBJ		=	${SRC:%.c=%.o}
+
+CC		=	gcc
 
 NAME 	=	graphic
 
 all		:	$(NAME)
 
-$(OBJS)	:
-			gcc -Wall -Werror -Wextra -std=gnu99 -I. -g -lm -lGLEW -lglfw -lGL ${OBJS} minilibx/libmlx_Linux.a -o ${NAME}
-
-clean	:
-			/bin/rm -f $(OBJS)
+$(OBJ)	:	$(NAME)
+			$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
 
 fclean	:	clean
 			/bin/rm -f $(NAME)

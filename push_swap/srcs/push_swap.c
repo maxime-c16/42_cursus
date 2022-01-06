@@ -7,17 +7,42 @@ void	ft_exit(char *exit_msg, int exit_code)
 	return ;
 }
 
+void	ft_print_lst(t_stack **stack)
+{
+	while ((*stack)->next)
+	{
+		printf("%d -> ", (*stack)->num);
+		*stack = (*stack)->next;
+	}
+	printf("(null)\n");
+}
+
 int	main(int ac, char **av)
 {
-	int	tab[ac - 1];
 	int	i;
+	int num;
+	t_stack	*stack_a;
+	t_stack	*tmp;
+	//t_stack	*stack_b;
 
-	i = 0;
+
+	i = 1;
+	stack_a = NULL;
 	if (ac < 2)
 		ft_exit("Too few arguments...\n", 1);
-	while (i < ac - 1)
+	num = (int)ft_atoi(av[i]);
+	ft_init_lst(&stack_a, num);
+	while (++i < ac)
 	{
-		tab[i] = 
+		num = (int)ft_atoi(av[i]);
+		printf("num = %d\n", num);
+		ft_lstadd_back(&stack_a, num);
 	}
+	tmp = stack_a;
+	ft_print_lst(&stack_a);
+	printf("rotating...\n");
+	ft_rotate_stck(&stack_a);
+	ft_print_lst(&stack_a);
+
 	return (0);
 }
