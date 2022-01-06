@@ -29,9 +29,13 @@ void	ft_print_lst(t_stack **stack_a, t_stack **stack_b);
 
 //parsing function
 
-void	ft_check_int(long nb);
-void	ft_parse_case(t_stack **stack, char *str);
+int		ft_isalpha(int c);
+int		ft_strcmp(char *s1, char *s2);
+void		ft_check_int(long nb);
+void	ft_check_numbers(char **av);
 char	**ft_split(char *s, char c);
+void	ft_parse_int(t_stack **stack, char **av, int ac);
+void	ft_parse_fill(t_stack **stack, char *str);
 
 //rotate functions
 

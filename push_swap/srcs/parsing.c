@@ -7,14 +7,25 @@ void	ft_check_int(long nb)
 	return ;
 }
 
-void	ft_parse_case(t_stack **stack, char *str)
+void	ft_check_db(char **str)
 {
-	if (str[1] && str[1] == ' ')
-		ft_parse_fill(stack, str);
-	else
+	int	i;
+	int	j;
+	int nb;
+
+	i = 0;
+	while (str[i])
 	{
-		ft_check_int(ft_atoi(str[0]));
-		ft_init_lst(stack, ft_atoi(str[0]));
+		j = 0;
+		nb = 0;
+		while (str[j])
+		{
+			if (ft_strcmp(str[i], str[j]))
+				nb++;
+			j++;
+		}
+		if (nb > 1)
+			ft_exit("Int repetition, check argv\n", 1);
 	}
 }
 
@@ -22,13 +33,37 @@ void	ft_parse_fill(t_stack **stack, char *str)
 {
 	char	**split;
 	int		i;
+	int		num;
 
 	i = 0;
 	split = ft_split(str, ' ');
-	ft_init_lst(stack, ft_atoi(split[i]));
+	num = ft_atoi(split[i]);
+	printf("num = %d\n", num);
+	ft_init_lst(stack, num);
+	if (!split[1])
+		return ;
 	while (split[i++])
 	{
-		ft_check_int(ft_atoi(split[i]));
-		ft_lstadd_back(stack, ft_atoi(split[i]));
+		num = ft_atoi(split[i]);
+		printf("num = %d\n", num);
+		ft_check_int(num);
+		ft_lstadd_back(stack, num);
 	}
+	return ;
+}
+
+void	ft_parse_int(t_stack **stack, char **av, int ac)
+{
+	int	num;
+	int	i;
+
+	i = 1;
+	num = (int)ft_atoi(av[i]);
+	ft_init_lst(stack, num);
+	while (++i < ac)
+	{
+		num = (int)ft_atoi(av[i]);
+		ft_lstadd_back(stack, num);
+	}
+	return ;
 }

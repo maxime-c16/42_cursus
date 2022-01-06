@@ -1,5 +1,25 @@
 #include "../includes/push_swap.h"
 
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*cpy;
+	size_t	i;
+
+	i = 0;
+	cpy = malloc(sizeof(char) * (len + 1));
+	if (!s || !cpy)
+		return (NULL);
+	if (start >= (unsigned int)strlen(s))
+		return (cpy);
+	while (i < len)
+	{
+		cpy[i] = s[start + i];
+		i++;
+	}
+	cpy[i] = '\0';
+	return (cpy);
+}
+
 int	word_count(char const *s, char c)
 {
 	int		wd;

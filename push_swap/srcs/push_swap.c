@@ -33,29 +33,20 @@ void	ft_print_lst(t_stack **stack_a, t_stack **stack_b)
 
 void	push_swap(int ac, char **av)
 {
-	int		i;
-	int		num;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	i = 1;
 	stack_a = NULL;
 	stack_b = NULL;
 	if (ac < 2)
 		ft_exit("Too few arguments...\n", 1);
 	else if (ac == 2)
-		
-	num = (int)ft_atoi(av[i]);
-	ft_init_lst(&stack_a, num);
-	while (++i < ac)
-	{
-		num = (int)ft_atoi(av[i]);
-		ft_lstadd_back(&stack_a, num);
-	}
+		ft_parse_fill(&stack_a, av[1]);
+	else if (ac > 2)
+		ft_parse_int(&stack_a, av, ac);
 	ft_print_lst(&stack_a, &stack_b);
 	printf("\nrotating...\n");
-	ft_push_stck(&stack_a, &stack_b);
-	ft_push_stck(&stack_a, &stack_b);
+	ft_rotate_stck(&stack_a);
 	ft_print_lst(&stack_a, &stack_b);
 }
 
