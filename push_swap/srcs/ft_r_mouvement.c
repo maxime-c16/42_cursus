@@ -24,3 +24,17 @@ void	ft_rotate_stck(t_stack **stack)
 	}
 	return ;
 }
+
+void	ft_rotate(int cmd, t_stack **stack_a, t_stack **stack_b)
+{
+	if (cmd == 20)
+		ft_rotate_stck(stack_a);
+	else if (cmd == 21)
+		ft_rotate_stck(stack_b);
+	else if (cmd == 22)
+	{
+		ft_rotate_stck(stack_a);
+		ft_rotate_stck(stack_b);
+	}
+	return ;
+}

@@ -1,5 +1,6 @@
-FILES	=	push_swap.c ft_atoi.c ft_isdigit.c ft_lsts.c ft_r_mouvement.c \
+FILES	=	push_swap.c ft_atoi.c checks.c ft_lsts.c ft_r_mouvement.c \
 			ft_p_mouvement.c parsing.c ft_split_ps.c ft_s_mouvement.c \
+			cases.c
 
 SRC_DIR	=	srcs/
 

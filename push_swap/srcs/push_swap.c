@@ -35,22 +35,23 @@ void	push_swap(int ac, char **av)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	t_stack	*temp;
 
 	stack_a = NULL;
 	stack_b = NULL;
+	temp = NULL;
 	if (ac < 2)
 		ft_exit("Too few arguments...\n", 1);
 	else if (ac == 2)
 		ft_parse_fill(&stack_a, av[1]);
 	else if (ac > 2)
 		ft_parse_int(&stack_a, av, ac);
-	ft_print_lst(&stack_a, &stack_b);
-	ft_rotate_stck(&stack_a);
-	ft_print_lst(&stack_a, &stack_b);
-	ft_rotate_stck(&stack_a);
-	ft_print_lst(&stack_a, &stack_b);
-	ft_swap_stck(&stack_a);
-	ft_print_lst(&stack_a, &stack_b);
+	while (1)
+	{
+		int	cmd;
+		scanf("%d", &cmd);
+		ft_exec_cmd(cmd, &stack_a, &stack_b);
+	}
 	return ;
 }
 

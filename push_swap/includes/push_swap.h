@@ -11,7 +11,9 @@
 long	ft_atoi(const char *str);
 void	ft_exit(char *exit_msg, int exit_code);
 int		ft_isdigit(int c);
+void	ft_str_isalpha(char *str);
 void	push_swap(int ac, char **av);
+void	ft_check_db(char **str);
 
 typedef struct s_list
 {
@@ -26,29 +28,32 @@ void	ft_lstadd_back(t_stack **stack, int nb);
 void	ft_lstadd_front(t_stack **stack, t_stack *elem);
 void	ft_init_lst(t_stack **stack, long nb);
 void	ft_print_lst(t_stack **stack_a, t_stack **stack_b);
+void	ft_exec_cmd(int	cmd, t_stack **stack_a, t_stack **stack_b);
 
 //parsing function
 
 int		ft_isalpha(int c);
 int		ft_strcmp(char *s1, char *s2);
-void		ft_check_int(long nb);
-void	ft_check_numbers(char **av);
+void	ft_check_int(long nb);
 char	**ft_split(char *s, char c);
 void	ft_parse_int(t_stack **stack, char **av, int ac);
 void	ft_parse_fill(t_stack **stack, char *str);
 
 //rotate functions
 
+void	ft_rotate(int cmd, t_stack **stack_a, t_stack **stack_b);
 void	ft_back_r(t_stack **stack);
 void	ft_rotate_stck(t_stack **stack);
 
 //push functions
 
-void	ft_push_stck(t_stack **stack_a, t_stack **stack_b);
+void	ft_push(int cmd, t_stack **stack_a, t_stack **stack_b);
+void	ft_push_stck(t_stack **stack_a, t_stack **stack_b, t_stack *tmp);
 void	ft_del_one(t_stack **stack);
 
 //swap functions
 
+void	ft_swap_cmd(int cmd, t_stack **stack_a, t_stack **stack_b);
 void	ft_swap_stck(t_stack **stack);
 
 #endif

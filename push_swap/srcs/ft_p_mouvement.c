@@ -1,25 +1,47 @@
 #include "../includes/push_swap.h"
 
+void	ft_push(int cmd, t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *tmp;
+
+	tmp = NULL;
+	if (cmd == 1)
+		ft_push_stck(stack_a, stack_b, tmp);
+	else if (cmd == 2)
+		ft_push_stck(stack_b, stack_a, tmp);
+	return ;
+}
+
 void	ft_del_one(t_stack **stack)
 {
 	t_stack	*tmp;
 
 	tmp = *stack;
-	if (*stack != 0)
+	if (*stack)
 	{
 		printf("test\n");
 		*stack = (*stack)->next;
 		(*stack)->prev = NULL;
-		free(tmp);
 	}
+	return ;
 }
 
-void	ft_push_stck(t_stack **stack_a, t_stack **stack_b)
+void	ft_push_stck(t_stack **stack_a, t_stack **stack_b, t_stack *tmp)
 {
+	tmp = NULL;
 	if (*stack_b == NULL)
-		ft_init_lst(stack_b, (*stack_a)->num);
+	{
+		tmp = *stack_a;
+		*stack_a = (*stack_a)->next;
+		*stack_b = tmp;
+		printf("\ninitialisation stack b\n");
+		(*stack_b)->next = NULL;
+	}
 	else
-		ft_lstadd_front(stack_b, *stack_a);
-	ft_del_one(stack_a);
+	{
+		tmp = ft_lstnew((*stack_a)->num);
+		ft_lstadd_front(stack_b, tmp);
+		ft_del_one(stack_a);
+	}
 	return ;
 }
