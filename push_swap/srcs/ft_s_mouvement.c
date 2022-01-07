@@ -16,13 +16,13 @@ void	ft_swap_stck(t_stack **stack)
 	return ;
 }
 
-void	ft_swap_cmd(int cmd, t_stack **stack_a, t_stack **stack_b)
+void	ft_swap_cmd(char *cmd, t_stack **stack_a, t_stack **stack_b)
 {
-	if (cmd == 10)
+	if (cmd[1] == 'A')
 		ft_swap_stck(stack_a);
-	else if (cmd == 11)
+	else if (cmd[1] == 'B')
 		ft_swap_stck(stack_b);
-	else if (cmd == 12)
+	else if (cmd[1] == 'S')
 	{
 		ft_swap_stck(stack_b);
 		ft_swap_stck(stack_a);

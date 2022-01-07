@@ -48,9 +48,9 @@ void	push_swap(int ac, char **av)
 		ft_parse_int(&stack_a, av, ac);
 	while (1)
 	{
-		int	cmd;
-		scanf("%d", &cmd);
-		ft_exec_cmd(cmd, &stack_a, &stack_b);
+		char	*str;
+		scanf("%s", str);
+		ft_exec_cmd(str, &stack_a, &stack_b);
 	}
 	return ;
 }

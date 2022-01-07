@@ -1,13 +1,13 @@
 #include "../includes/push_swap.h"
 
-void	ft_push(int cmd, t_stack **stack_a, t_stack **stack_b)
+void	ft_push(char *cmd, t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack *tmp;
 
 	tmp = NULL;
-	if (cmd == 1)
+	if (cmd[1] == 'A')
 		ft_push_stck(stack_a, stack_b, tmp);
-	else if (cmd == 2)
+	else if (cmd[1] == 'B')
 		ft_push_stck(stack_b, stack_a, tmp);
 	return ;
 }

@@ -17,21 +17,24 @@ void	ft_back_r(t_stack **stack)
 
 void	ft_rotate_stck(t_stack **stack)
 {
+	t_stack *tmp;
+
+	tmp = *stack;
 	if (*stack && (*stack)->next)
 	{
 		*stack = (*stack)->next;
-		ft_back_r(stack);
+		ft_back_r(&tmp);
 	}
 	return ;
 }
 
-void	ft_rotate(int cmd, t_stack **stack_a, t_stack **stack_b)
+void	ft_rotate(char *cmd, t_stack **stack_a, t_stack **stack_b)
 {
-	if (cmd == 20)
+	if (cmd[1] == 'A')
 		ft_rotate_stck(stack_a);
-	else if (cmd == 21)
+	else if (cmd[1] == 'B')
 		ft_rotate_stck(stack_b);
-	else if (cmd == 22)
+	else if (cmd[1] == 'R')
 	{
 		ft_rotate_stck(stack_a);
 		ft_rotate_stck(stack_b);

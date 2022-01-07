@@ -28,7 +28,7 @@ void	ft_lstadd_back(t_stack **stack, int nb);
 void	ft_lstadd_front(t_stack **stack, t_stack *elem);
 void	ft_init_lst(t_stack **stack, long nb);
 void	ft_print_lst(t_stack **stack_a, t_stack **stack_b);
-void	ft_exec_cmd(int	cmd, t_stack **stack_a, t_stack **stack_b);
+void	ft_exec_cmd(char *cmd, t_stack **stack_a, t_stack **stack_b);
 
 //parsing function
 
@@ -41,19 +41,19 @@ void	ft_parse_fill(t_stack **stack, char *str);
 
 //rotate functions
 
-void	ft_rotate(int cmd, t_stack **stack_a, t_stack **stack_b);
+void	ft_rotate(char *cmd, t_stack **stack_a, t_stack **stack_b);
 void	ft_back_r(t_stack **stack);
 void	ft_rotate_stck(t_stack **stack);
 
 //push functions
 
-void	ft_push(int cmd, t_stack **stack_a, t_stack **stack_b);
+void	ft_push(char *cmd, t_stack **stack_a, t_stack **stack_b);
 void	ft_push_stck(t_stack **stack_a, t_stack **stack_b, t_stack *tmp);
 void	ft_del_one(t_stack **stack);
 
 //swap functions
 
-void	ft_swap_cmd(int cmd, t_stack **stack_a, t_stack **stack_b);
+void	ft_swap_cmd(char *cmd, t_stack **stack_a, t_stack **stack_b);
 void	ft_swap_stck(t_stack **stack);
 
 #endif
