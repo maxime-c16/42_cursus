@@ -24,15 +24,18 @@ t_stack	*ft_lstnew(int num)
 	return (new);
 }
 
-t_stack	*ft_lstlast(t_stack *lst)
+t_stack	*ft_lstlast(t_stack **lst)
 {
-	while (lst)
+	t_stack	*tmp;
+
+	tmp = *lst;
+	while (tmp)
 	{
-		if (!(lst->next))
-			return (lst);
-		lst = lst->next;
+		if (!(tmp->next))
+			return (tmp);
+		tmp = tmp->next;
 	}
-	return (lst);
+	return (tmp);
 }
 
 void	ft_lstadd_back(t_stack **stack, int nb)

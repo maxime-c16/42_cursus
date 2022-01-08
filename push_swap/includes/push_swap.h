@@ -22,7 +22,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_stack;
 
-t_stack	*ft_lstlast(t_stack *lst);
+t_stack	*ft_lstlast(t_stack **lst);
 t_stack	*ft_lstnew(int num);
 void	ft_lstadd_back(t_stack **stack, int nb);
 void	ft_lstadd_front(t_stack **stack, t_stack *elem);
@@ -30,7 +30,7 @@ void	ft_init_lst(t_stack **stack, long nb);
 void	ft_print_lst(t_stack **stack_a, t_stack **stack_b);
 void	ft_exec_cmd(char *cmd, t_stack **stack_a, t_stack **stack_b);
 
-//parsing function
+//parsing functions
 
 int		ft_isalpha(int c);
 int		ft_strcmp(char *s1, char *s2);
@@ -44,6 +44,11 @@ void	ft_parse_fill(t_stack **stack, char *str);
 void	ft_rotate(char *cmd, t_stack **stack_a, t_stack **stack_b);
 void	ft_back_r(t_stack **stack);
 void	ft_rotate_stck(t_stack **stack);
+
+//reverse rotate functions
+
+void	ft_rotate_rr(char *cmd, t_stack **stack_a, t_stack **stack_b);
+void	ft_rotate_rr_stck(t_stack **stack);
 
 //push functions
 

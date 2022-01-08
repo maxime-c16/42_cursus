@@ -1,6 +1,6 @@
 FILES	=	push_swap.c ft_atoi.c checks.c ft_lsts.c ft_r_mouvement.c \
 			ft_p_mouvement.c parsing.c ft_split_ps.c ft_s_mouvement.c \
-			cases.c
+			cases.c ft_rr_mouvement.c 
 
 SRC_DIR	=	srcs/
 
@@ -10,7 +10,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 CC		=	gcc
 
-CFLAGS	=	
+CFLAGS	=
 
 NAME	=	push_swap
 

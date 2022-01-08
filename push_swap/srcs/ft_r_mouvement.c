@@ -2,17 +2,11 @@
 
 void	ft_back_r(t_stack **stack)
 {
-	t_stack	*tmp1;
-	t_stack	*tmp2;
+	int		tmp2;
 
-	tmp1 = NULL;
-	tmp1 = *stack;
-	tmp2 = (*stack)->prev;
-	while (tmp1->next)
-		tmp1 = tmp1->next;
-	tmp1->next = tmp2;
-	tmp1->next->prev = tmp1;
-	tmp1->next->next = NULL;
+	tmp2 = (*stack)->num;
+	ft_lstadd_back(stack, tmp2);
+	ft_del_one(stack);
 }
 
 void	ft_rotate_stck(t_stack **stack)
@@ -22,8 +16,8 @@ void	ft_rotate_stck(t_stack **stack)
 	tmp = *stack;
 	if (*stack && (*stack)->next)
 	{
-		*stack = (*stack)->next;
 		ft_back_r(&tmp);
+		*stack = (*stack)->next;
 	}
 	return ;
 }
