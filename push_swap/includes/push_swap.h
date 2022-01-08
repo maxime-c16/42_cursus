@@ -63,6 +63,6 @@ void	ft_swap_stck(t_stack **stack);
 
 //radix sort
 
-t_stack	*get_max(t_stack **stack);
+int		get_max(t_stack **stack);
 
 #endif

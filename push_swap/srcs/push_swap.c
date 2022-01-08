@@ -46,6 +46,7 @@ void	push_swap(int ac, char **av)
 		ft_parse_fill(&stack_a, av[1]);
 	else if (ac > 2)
 		ft_parse_int(&stack_a, av, ac);
+	printf("plus grand : %d\n", get_max(&stack_a));
 	while (1)
 	{
 		char	*str;
