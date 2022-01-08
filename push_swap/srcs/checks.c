@@ -44,4 +44,17 @@ void	ft_str_isalpha(char *str)
 	return ;
 }
 
+int	get_size(t_stack **stack)
+{
+	int		size;
+	t_stack	*tmp;
 
+	size = 0;
+	tmp = *stack;
+	while (tmp->next)
+	{
+		size++;
+		tmp = tmp->next;
+	}
+	return (size);
+}

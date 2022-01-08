@@ -13,6 +13,5 @@ void	ft_exec_cmd(char *cmd, t_stack **stack_a, t_stack **stack_b)
 		else
 			ft_rotate(cmd, stack_a, stack_b);
 	}
-	ft_print_lst(stack_a, stack_b);
 	return ;
 }

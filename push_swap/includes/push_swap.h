@@ -14,6 +14,7 @@ int		ft_isdigit(int c);
 void	ft_str_isalpha(char *str);
 void	push_swap(int ac, char **av);
 void	ft_check_db(char **str);
+void	ft_putstr_fd(char *s, int fd);
 
 typedef struct s_list
 {
@@ -22,6 +23,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_stack;
 
+int		get_size(t_stack **stack);
 t_stack	*ft_lstlast(t_stack **lst);
 t_stack	*ft_lstnew(int num);
 void	ft_lstadd_back(t_stack **stack, int nb);
@@ -63,6 +65,8 @@ void	ft_swap_stck(t_stack **stack);
 
 //radix sort
 
-int		get_max(t_stack **stack);
+t_stack	*get_max(t_stack **stack);
+void	ft_neg_sorting(t_stack **stack_a, t_stack **stack_b);
+void	radix_sort(t_stack **stack_a, t_stack **stack_b);
 
 #endif

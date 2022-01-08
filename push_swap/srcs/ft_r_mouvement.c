@@ -25,13 +25,20 @@ void	ft_rotate_stck(t_stack **stack)
 void	ft_rotate(char *cmd, t_stack **stack_a, t_stack **stack_b)
 {
 	if (cmd[1] == 'A')
+	{
 		ft_rotate_stck(stack_a);
+		ft_putstr_fd("RA\n", 1);
+	}
 	else if (cmd[1] == 'B')
+	{
 		ft_rotate_stck(stack_b);
+		ft_putstr_fd("RB\n", 1);
+	}
 	else if (cmd[1] == 'R')
 	{
 		ft_rotate_stck(stack_a);
 		ft_rotate_stck(stack_b);
+		ft_putstr_fd("RR\n", 1);
 	}
 	return ;
 }

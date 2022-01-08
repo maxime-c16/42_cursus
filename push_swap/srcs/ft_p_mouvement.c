@@ -6,9 +6,15 @@ void	ft_push(char *cmd, t_stack **stack_a, t_stack **stack_b)
 
 	tmp = NULL;
 	if (cmd[1] == 'A')
+	{
 		ft_push_stck(stack_a, stack_b, tmp);
+		ft_putstr_fd("PA\n", 1);
+	}
 	else if (cmd[1] == 'B')
+	{
 		ft_push_stck(stack_b, stack_a, tmp);
+		ft_putstr_fd("PB\n", 1);
+	}
 	return ;
 }
 
@@ -19,7 +25,6 @@ void	ft_del_one(t_stack **stack)
 	tmp = *stack;
 	if (*stack && (*stack)->next)
 	{
-		printf("test\n");
 		*stack = (*stack)->next;
 		(*stack)->prev = NULL;
 	}
