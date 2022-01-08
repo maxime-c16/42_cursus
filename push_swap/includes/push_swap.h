@@ -61,4 +61,8 @@ void	ft_del_one(t_stack **stack);
 void	ft_swap_cmd(char *cmd, t_stack **stack_a, t_stack **stack_b);
 void	ft_swap_stck(t_stack **stack);
 
+//radix sort
+
+t_stack	*get_max(t_stack **stack);
+
 #endif

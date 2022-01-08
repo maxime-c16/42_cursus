@@ -1,3 +1,9 @@
 #include "../includes/push_swap.h"
 
-void	check_pivot()
+t_stack	*get_max(t_stack **stack)
+{
+	t_stack	*temp;
+
+	temp = NULL;
+	
+}
