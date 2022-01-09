@@ -19,21 +19,21 @@ void	ft_swap_stck(t_stack **stack)
 
 void	ft_swap_cmd(char *cmd, t_stack **stack_a, t_stack **stack_b)
 {
-	if (cmd[1] == 'A')
+	if (cmd[1] == 'a')
 	{
 		ft_swap_stck(stack_a);
-		ft_putstr_fd("SA\n", 1);
+		write(1, "sa\n", 3);
 	}
-	else if (cmd[1] == 'B')
+	else if (cmd[1] == 'b')
 	{
 		ft_swap_stck(stack_b);
-		ft_putstr_fd("SB\n", 1);
+		write(1, "sb\n", 3);
 	}
-	else if (cmd[1] == 'S')
+	else if (cmd[1] == 's')
 	{
 		ft_swap_stck(stack_b);
 		ft_swap_stck(stack_a);
-		ft_putstr_fd("SS\n", 1);
+		write(1, "ss\n", 3);
 	}
 	return ;
 }

@@ -31,12 +31,15 @@ char	**ft_normalize(char **str)
 	char	**new;
 
 	i = 0;
+	j = 0;
 	size = ft_db_strlen(str);
 	quicksort(str, 0, size - 2);
 	new = malloc(sizeof(char *) * (size + 1));
+	if (!new)
+		ft_exit("Malloc error", 1);
 	while (new[i])
 	{
-		j = 0;
+		j += i;
 		while (str[j])
 		{
 			if (new[i] == str[j])

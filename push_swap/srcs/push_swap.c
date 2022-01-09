@@ -36,18 +36,19 @@ void	push_swap(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	t_stack	*temp;
+	t_stack	*temp2;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	temp = NULL;
+	temp2 = NULL;
 	if (ac < 2)
 		ft_exit("Too few arguments...\n", 1);
 	else if (ac == 2)
 		ft_parse_fill(&stack_a, av[1]);
 	else if (ac > 2)
 		ft_parse_int(&stack_a, av, ac);
-	ft_print_lst(&stack_a, &stack_b);
-	//ft_neg_sorting(&stack_a, &stack_b);
+	radix_sort(&stack_a, &stack_b, temp, temp2);
 	return ;
 }
 

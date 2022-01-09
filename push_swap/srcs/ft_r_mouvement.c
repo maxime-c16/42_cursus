@@ -24,21 +24,21 @@ void	ft_rotate_stck(t_stack **stack)
 
 void	ft_rotate(char *cmd, t_stack **stack_a, t_stack **stack_b)
 {
-	if (cmd[1] == 'A')
+	if (cmd[1] == 'a')
 	{
 		ft_rotate_stck(stack_a);
-		ft_putstr_fd("RA\n", 1);
+		write(1, "ra\n", 3);
 	}
-	else if (cmd[1] == 'B')
+	else if (cmd[1] == 'b')
 	{
 		ft_rotate_stck(stack_b);
-		ft_putstr_fd("RB\n", 1);
+		write(1, "rb\n", 3);
 	}
-	else if (cmd[1] == 'R')
+	else if (cmd[1] == 'r')
 	{
 		ft_rotate_stck(stack_a);
 		ft_rotate_stck(stack_b);
-		ft_putstr_fd("RR\n", 1);
+		write(1, "rr\n", 3);
 	}
 	return ;
 }

@@ -5,15 +5,15 @@ void	ft_push(char *cmd, t_stack **stack_a, t_stack **stack_b)
 	t_stack	*tmp;
 
 	tmp = NULL;
-	if (cmd[1] == 'A')
-	{
-		ft_push_stck(stack_a, stack_b, tmp);
-		ft_putstr_fd("PA\n", 1);
-	}
-	else if (cmd[1] == 'B')
+	if (cmd[1] == 'a')
 	{
 		ft_push_stck(stack_b, stack_a, tmp);
-		ft_putstr_fd("PB\n", 1);
+		write(1, "pa\n", 3);
+	}
+	else if (cmd[1] == 'b')
+	{
+		ft_push_stck(stack_a, stack_b, tmp);
+		write(1, "pb\n", 3);
 	}
 	return ;
 }

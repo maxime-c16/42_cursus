@@ -69,8 +69,7 @@ void	ft_swap_stck(t_stack **stack);
 //radix sort
 
 t_stack	*get_max(t_stack **stack);
-void	ft_neg_sorting(t_stack **stack_a, t_stack **stack_b);
-void	radix_sort(t_stack **stack_a, t_stack **stack_b);
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack *temp1, t_stack *temp2);
 void	quicksort(char	**tab, int low, int high);
 
 #endif

@@ -6,7 +6,6 @@ void	ft_rotate_rr_stck(t_stack **stack)
 
 	tmp = ft_lstlast(stack);
 	tmp->prev->next = NULL;
-	printf("rev B\n");
 	ft_lstadd_front(stack, tmp);
 }
 
