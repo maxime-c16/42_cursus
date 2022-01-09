@@ -10,12 +10,13 @@
 
 int		ft_isdigit(int c);
 long	ft_atoi(const char *str);
+char	*ft_itoa(int n);
+char	**ft_normalize(char **str);
 void	ft_exit(char *exit_msg, int exit_code);
 void	ft_str_isalpha(char **str);
 void	push_swap(int ac, char **av);
 void	ft_check_db(char **str);
 void	ft_putstr_fd(char *s, int fd);
-void	ft_normalize(char **str);
 void	ft_char_to_tab(char **str, int **tab);
 
 typedef struct s_list
@@ -70,6 +71,6 @@ void	ft_swap_stck(t_stack **stack);
 t_stack	*get_max(t_stack **stack);
 void	ft_neg_sorting(t_stack **stack_a, t_stack **stack_b);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b);
-void	quicksort(int *tab, int low, int high);
+void	quicksort(char	**tab, int low, int high);
 
 #endif

@@ -11,7 +11,7 @@ long	ft_atoi(const char *str)
 			|| *str == '\r'
 			|| *str == ' '))
 		str++;
-	if (*str == '+' || *str == '-')
+	if (*str && (*str == '+' || *str == '-'))
 	{
 		if (*str == '-')
 			sign *= -1;

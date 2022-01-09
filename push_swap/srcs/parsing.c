@@ -32,22 +32,24 @@ void	ft_check_db(char **str)
 void	ft_parse_fill(t_stack **stack, char *str)
 {
 	char	**split;
+	char	**cpy;
 	int		i;
 	int		num;
 
 	i = 0;
-	split = ft_split(str, ' ');
-	ft_normalize(split);
+	cpy = ft_split(str, ' ');
+	//ft_str_isalpha(split);
+	split = ft_normalize(cpy);
+	free(cpy);
 	if (!split[1])
 	{
 		ft_init_lst(stack, ft_atoi(str));
 		return ;
 	}
-	ft_str_isalpha(split);
 	num = ft_atoi(split[i]);
 	ft_init_lst(stack, num);
 	i = 1;
-	while (split[i + 1])
+	while (split[i + 2])
 	{
 		num = ft_atoi(split[i]);
 		ft_check_int(num);

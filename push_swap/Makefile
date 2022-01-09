@@ -1,6 +1,7 @@
-FILES	=	push_swap.c ft_atoi.c checks.c ft_lsts.c ft_r_mouvement.c	\
-			ft_p_mouvement.c parsing.c ft_split_ps.c ft_s_mouvement.c	\
-			cases.c ft_rr_mouvement.c sorting_algo.c utils.c quick_sort.c
+FILES	=	push_swap.c ft_atoi.c checks.c ft_lsts.c ft_r_mouvement.c		\
+			ft_p_mouvement.c parsing.c ft_split_ps.c ft_s_mouvement.c		\
+			cases.c ft_rr_mouvement.c sorting_algo.c utils.c quick_sort.c	\
+			ft_itoa_ps.c
 
 SRC_DIR	=	srcs/
 

@@ -1,8 +1,8 @@
 #include "../includes/push_swap.h"
 
-void	ft_swap(int *a, int *b)
+void	ft_swap(char **a, char **b)
 {
-	int	c;
+	char	*c;
 
 	c = *a;
 	*a = *b;
@@ -10,18 +10,21 @@ void	ft_swap(int *a, int *b)
 	return ;
 }
 
-int	ft_pivot(int *tab, int low, int high)
+int	ft_pivot(char **tab, int low, int high)
 {
 	int	i;
 	int	j;
 	int	pivot;
+	int	num;
 
 	i = low - 1;
 	j = low;
-	pivot = tab[high];
+	num = 0;
+	pivot = ft_atoi(tab[high]);
 	while (j < high)
 	{
-		if (tab[j] < pivot)
+		num = ft_atoi(tab[j]);
+		if (num < pivot)
 		{
 			i++;
 			ft_swap(&tab[i], &tab[j]);
@@ -33,7 +36,7 @@ int	ft_pivot(int *tab, int low, int high)
 	return (i);
 }
 
-void	quicksort(int *tab, int low, int high)
+void	quicksort(char	**tab, int low, int high)
 {
 	int	pivotIndex;
 
@@ -44,16 +47,4 @@ void	quicksort(int *tab, int low, int high)
 		quicksort(tab, pivotIndex + 1, high);
 	}
 	return ;
-}
-
-void	ft_char_to_tab(char **str, int **tab)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		*(tab + i) = (int)ft_atoi(str[i]);
-		i++;
-	}
 }
