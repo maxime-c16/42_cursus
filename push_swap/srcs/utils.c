@@ -23,30 +23,18 @@ void	ft_putstr_fd(char *s, int fd)
 	return ;
 }
 
-char	**ft_normalize(char **str)
+int	get_minimum(t_stack **stack)
 {
-	int		i;
-	int		j;
-	int		size;
-	char	**new;
+	t_stack	*temp;
+	int		temp2;
 
-	i = 0;
-	j = 0;
-	size = ft_db_strlen(str);
-	quicksort(str, 0, size - 2);
-	new = malloc(sizeof(char *) * (size + 1));
-	if (!new)
-		ft_exit("Malloc error", 1);
-	while (new[i])
+	temp = *stack;
+	temp2 = (*stack)->num;
+	while (temp && temp->next)
 	{
-		j += i;
-		while (str[j])
-		{
-			if (new[i] == str[j])
-				new[i] = ft_itoa(j);
-			j++;
-		}
-		i++;
+		if (temp2 > temp->num)
+			temp2 = temp->num;
+		temp = temp->next;
 	}
-	return (new);
+	return (temp2);
 }

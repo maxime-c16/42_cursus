@@ -46,20 +46,18 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack *temp1, t_stack *t
 	while (i < max_bits)
 	{
 		j = 0;
-		while (j < size)
+		while (j < size + 1)
 		{
 			temp1 = *stack_a;
 			if (((temp1->num >> i) & 1) == 1)
 				ft_exec_cmd("ra", stack_a, stack_b);
 			else
 				ft_exec_cmd("pb", stack_a, stack_b);
-			j++;
+			++j;
 		}
 		ft_putback_in_stck(stack_a, stack_b);
-		i++;
+		++i;
 	}
-	while ((*stack_a)->num != -140)
-	{
+	while ((*stack_a)->num != get_minimum(stack_a))
 		ft_exec_cmd("ra", stack_a, stack_b);
-	}
 }

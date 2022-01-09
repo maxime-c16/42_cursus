@@ -27,6 +27,7 @@ typedef struct s_list
 }					t_stack;
 
 int		get_size(t_stack **stack);
+int		get_minimum(t_stack **stack);
 t_stack	*ft_lstlast(t_stack **lst);
 t_stack	*ft_lstnew(int num);
 void	ft_lstadd_back(t_stack **stack, int nb);
