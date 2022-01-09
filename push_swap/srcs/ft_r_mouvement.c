@@ -11,7 +11,7 @@ void	ft_back_r(t_stack **stack)
 
 void	ft_rotate_stck(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = *stack;
 	if (*stack && (*stack)->next)

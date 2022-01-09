@@ -2,7 +2,7 @@
 
 void	ft_push(char *cmd, t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = NULL;
 	if (cmd[1] == 'A')

@@ -22,7 +22,7 @@ int	ft_strcmp(char *s1, char *s2)
 	while (s1[i] && s2[i])
 	{
 		if (s1[i] != s2[i]
-			||(s1[i + 1] && !s2[i + 1])
+			|| (s1[i + 1] && !s2[i + 1])
 			|| (!s1[i + 1] && s2[i + 1]))
 			return (1);
 		i++;
@@ -30,15 +30,21 @@ int	ft_strcmp(char *s1, char *s2)
 	return (0);
 }
 
-void	ft_str_isalpha(char *str)
+void	ft_str_isalpha(char **str)
 {
 	int	i;
+	int	j;
 
 	i = 0;
 	while (str[i])
 	{
-		if (ft_isalpha(str[i]) == 1)
-			ft_exit("Arg error, check argv\n", 1);
+		j = 0;
+		while (str[i][j])
+		{
+			if (ft_isalpha(str[i][j]) == 1)
+				ft_exit("Arg error, check argv\n", 1);
+			j++;
+		}
 		i++;
 	}
 	return ;

@@ -46,9 +46,7 @@ void	push_swap(int ac, char **av)
 		ft_parse_fill(&stack_a, av[1]);
 	else if (ac > 2)
 		ft_parse_int(&stack_a, av, ac);
-	ft_print_lst(&stack_a, &stack_b);
 	ft_neg_sorting(&stack_a, &stack_b);
-	ft_print_lst(&stack_a, &stack_b);
 	return ;
 }
 

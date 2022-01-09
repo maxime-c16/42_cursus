@@ -40,17 +40,14 @@ void	ft_neg_sorting(t_stack **stack_a, t_stack **stack_b)
 	size = get_size(stack_a);
 	while (size)
 	{
-		if (temp1->num >= 0)
-			ft_exec_cmd("RA", &temp1, &temp2);
-		else if (temp1->num < 0)
+		if ((*stack_a)->num >= 0)
+			ft_exec_cmd("RA", stack_a, stack_b);
+		else if ((*stack_a)->num < 0)
 		{
-			ft_exec_cmd("PA", &temp1, &temp2);
+			ft_exec_cmd("PA", stack_a, stack_b);
 		}
 		size--;
-		ft_print_lst(stack_a, stack_b);
 	}
-	while (temp2->next)
-	{
-		ft_exec_cmd("PB", &temp1, &temp2);
-	}
+	while (*stack_b)
+		ft_exec_cmd("PB", stack_a, stack_b);
 }

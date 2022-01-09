@@ -11,7 +11,7 @@
 long	ft_atoi(const char *str);
 void	ft_exit(char *exit_msg, int exit_code);
 int		ft_isdigit(int c);
-void	ft_str_isalpha(char *str);
+void	ft_str_isalpha(char **str);
 void	push_swap(int ac, char **av);
 void	ft_check_db(char **str);
 void	ft_putstr_fd(char *s, int fd);

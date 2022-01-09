@@ -12,3 +12,19 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 	return ;
 }
+
+/*void	ft_normalize(char)
+{
+	t_stack *temp;
+	t_stack	*temp2;
+
+	temp = *stack;
+	while (temp)
+	{
+		temp2 = *stack;
+		while (temp2)
+		{
+
+		}
+	}
+}*/
