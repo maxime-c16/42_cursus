@@ -37,6 +37,7 @@ void	ft_parse_fill(t_stack **stack, char *str)
 
 	i = 0;
 	split = ft_split(str, ' ');
+	ft_normalize(split);
 	if (!split[1])
 	{
 		ft_init_lst(stack, ft_atoi(str));

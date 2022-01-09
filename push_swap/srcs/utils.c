@@ -13,18 +13,11 @@ void	ft_putstr_fd(char *s, int fd)
 	return ;
 }
 
-/*void	ft_normalize(char)
+void	ft_normalize(char **str)
 {
-	t_stack *temp;
-	t_stack	*temp2;
+	int	*tab;
 
-	temp = *stack;
-	while (temp)
-	{
-		temp2 = *stack;
-		while (temp2)
-		{
-
-		}
-	}
-}*/
+	ft_char_to_tab(str, &tab);
+	quicksort(tab, 0, sizeof(tab) / 4);
+	return ;
+}
