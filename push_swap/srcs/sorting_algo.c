@@ -32,7 +32,8 @@ void	ft_putback_in_stck(t_stack **stack_a, t_stack **stack_b)
 		ft_exec_cmd("pa", stack_a, stack_b);
 }
 
-void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack *temp1, t_stack *temp2)
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, \
+					t_stack *temp1, t_stack *temp2)
 {
 	int	size;
 	int	max_bits;
@@ -60,4 +61,9 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack *temp1, t_stack *t
 	}
 	while ((*stack_a)->num != get_minimum(stack_a))
 		ft_exec_cmd("ra", stack_a, stack_b);
+}
+
+void	ft_smart_rotate(t_stack **stack_a, t_stack **stack_b)
+{
+	
 }

@@ -110,7 +110,7 @@ class PsGui:
         if self.speed == 0:
             self.PauseCtl.config(text='||')
             self.speed = self.prespeed
-        self.speed = self.speed ** 4
+        self.speed = self.speed ** 2
         self.speedmeter.config(text='frame rate = ' \
                                     + '{:.2e}'.format(self.speed))
 
