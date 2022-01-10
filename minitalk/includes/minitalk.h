@@ -15,11 +15,12 @@ typedef struct s_message
 	char	message[BUFF_SIZE];
 	int		bit;
 	int		byte;
+	int		msg_status;
 }			t_message;
 
 #ifndef G_MSG
 # define G_MSG
-t_message	g_msg = {{0}, 1 << 6, 0};
+t_message	g_msg = {{0}, 1 << 6, 0, 0};
 #endif
 
 

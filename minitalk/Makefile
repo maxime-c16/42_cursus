@@ -1,10 +1,6 @@
-SRCS	=	ft_itoa.c
-
 CLT_SRC	=	client.c
 
 SRV_SRC	=	serveur.c
-
-OBJS	=	$(SRCS:.c=.o)
 
 CLT_OBJ	=	$(CLT_SRC:.c=.o)
 
@@ -20,10 +16,10 @@ CLT		=	client
 
 all		:	$(SRV) $(CLT)
 
-$(SRV)	:	$(SRV_OBJ) $(OBJS)
+$(SRV)	:	$(SRV_OBJ)
 			$(CC) -fsanitize=address -o $@ $^
 
-$(CLT)	:	$(CLT_OBJ) $(OBJS)
+$(CLT)	:	$(CLT_OBJ)
 			$(CC)  -fsanitize=address -o $@ $^
 
 clean	:
