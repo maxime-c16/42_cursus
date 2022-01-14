@@ -45,7 +45,7 @@ void	ft_parse_fill(t_stack **stack, char *str)
 	num = ft_atoi(split[i]);
 	ft_init_lst(stack, num);
 	i = 1;
-	while (split[i + 2])
+	while (split[i])
 	{
 		num = ft_atoi(split[i]);
 		ft_check_int(num);

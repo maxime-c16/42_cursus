@@ -49,6 +49,7 @@ void	push_swap(int ac, char **av)
 	else if (ac > 2)
 		ft_parse_int(&stack_a, av, ac);
 	radix_sort(&stack_a, &stack_b, temp, temp2);
+	ft_print_lst(&stack_a, &stack_b);
 	return ;
 }
 
