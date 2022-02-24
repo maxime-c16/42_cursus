@@ -1,39 +1,20 @@
 #include <mlx.h>
 #include <math.h>
 
-void AffichePixel(void *mlx, void *img, int x, int y, int x_centre, int y_centre)
+void	ft_square(void *mlx, void *img, int x, int y, int size)
 {
-	mlx_pixel_put(mlx, img, x_centre + x, y_centre + y, 0x7418AB);
-	mlx_pixel_put(mlx, img, x_centre + x, y_centre - y, 0x7418AB);
-	mlx_pixel_put(mlx, img, x_centre - x, y_centre + y, 0x7418AB);
-	mlx_pixel_put(mlx, img, x_centre - x, y_centre - y, 0x7418AB);
-	mlx_pixel_put(mlx, img, x_centre + y, y_centre + x, 0x7418AB);
-	mlx_pixel_put(mlx, img, x_centre + y, y_centre - x, 0x7418AB);
-	mlx_pixel_put(mlx, img, x_centre - y, y_centre + x, 0x7418AB);
-	mlx_pixel_put(mlx, img, x_centre - y, y_centre - x, 0x7418AB);
-}
+	int	x_size;
+	int	i;
+	int	y_size;
+	int	j;
 
-void	ft_cercle(void *mlx, void *img, int r, int x_center, int y_center)
-{
-	int	x;
-	int	y;
-	int	d;
-
-	x = 0;
-	y = r;
-	d = (5 - r) / 4;
-	mlx_pixel_put(mlx, img, x_center, y_center, 0x7418AB);
-	while (x < y)
+	x_size = x + size;
+	y_size = y + size;
+	i = 0;
+	j = 0;
+	while (x + i < x_size)
 	{
-		if (d < 0)
-			d += x + x + 3;
-		else
-		{
-			d += x + x - y - y + 5;
-			y--;
-		}
-		x++;
-		AffichePixel(mlx, img, x, y, x_center, y_center);
+		mlx_pixel_put(mlx, img, x, y, 0x1eb4e9);
 	}
 }
 
@@ -47,8 +28,7 @@ int	main(void)
 
 	mlx = mlx_init();
 	img = mlx_new_window(mlx, 1920, 1080, "max");
-	while (x < 1280)
-	
+	ft_square(mlx, img, x, y, 10);
 	mlx_loop(mlx);
 	return 0;
 }

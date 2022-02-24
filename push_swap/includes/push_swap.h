@@ -11,7 +11,6 @@
 int		ft_isdigit(int c);
 long	ft_atoi(const char *str);
 char	*ft_itoa(int n);
-char	**ft_normalize(char **str);
 void	ft_exit(char *exit_msg, int exit_code);
 void	ft_str_isalpha(char **str);
 void	push_swap(int ac, char **av);
@@ -22,6 +21,7 @@ void	ft_char_to_tab(char **str, int **tab);
 typedef struct s_list
 {
 	int				num;
+	int				index;
 	struct s_list	*prev;
 	struct s_list	*next;
 }					t_stack;
@@ -44,6 +44,7 @@ void	ft_check_int(long nb);
 char	**ft_split(char *s, char c);
 void	ft_parse_int(t_stack **stack, char **av, int ac);
 void	ft_parse_fill(t_stack **stack, char *str);
+char	**ft_cpy_num(char **cpy, t_stack **stack, int size);
 
 //rotate functions
 
@@ -72,5 +73,6 @@ void	ft_swap_stck(t_stack **stack);
 t_stack	*get_max(t_stack **stack);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack *temp1, t_stack *temp2);
 void	quicksort(char	**tab, int low, int high);
+void	ft_normalize(t_stack **stack);
 
 #endif

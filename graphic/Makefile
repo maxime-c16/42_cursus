@@ -9,7 +9,7 @@ NAME 	=	graphic
 all		:	$(NAME)
 
 $(OBJ)	:	$(NAME)
-			$(CC) -Wall -Wextra -Werror -Imlx -c $< -o $@
+			$(CC) -I /usr/X11/include -g -L /usr/X11/lib -lX11 -lmlx -lXext $< -o $@
 
 fclean	:	clean
 			/bin/rm -f $(NAME)
