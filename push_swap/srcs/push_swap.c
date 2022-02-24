@@ -48,7 +48,7 @@ void	push_swap(int ac, char **av)
 		ft_parse_fill(&stack_a, av[1]);
 	else if (ac > 2)
 		ft_parse_int(&stack_a, av, ac);
-	ft_normalize(&stack_a);
+	//ft_normalize(&stack_a);
 	radix_sort(&stack_a, &stack_b, temp, temp2);
 	// system("leaks push_swap");
 	return ;

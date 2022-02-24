@@ -50,7 +50,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, \
 		while (j < size + 1)
 		{
 			temp1 = *stack_a;
-			if (((temp1->index >> i) & 1) == 1)
+			if (((temp1->num >> i) & 1) == 1)
 				ft_exec_cmd("ra", stack_a, stack_b);
 			else
 				ft_exec_cmd("pb", stack_a, stack_b);
@@ -59,7 +59,7 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, \
 		ft_putback_in_stck(stack_a, stack_b);
 		++i;
 	}
-	while ((*stack_a)->index != get_minimum(stack_a))
+	while ((*stack_a)->num != get_minimum(stack_a))
 		ft_exec_cmd("ra", stack_a, stack_b);
 }
 
@@ -73,7 +73,7 @@ char	**ft_cpy_num(char **cpy, t_stack **stack, int size)
 	cpy = (char **)malloc(sizeof(char *) * (size + 1));
 	while (temp && temp->next)
 	{
-		cpy[i] = ft_itoa(temp->num);
+		*cpy = ft_itoa(temp->num);
 		printf("%s\n", *cpy);
 		temp = temp->next;
 		i++;
