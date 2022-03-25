@@ -1,4 +1,4 @@
-#include <mlx.h>
+#include "mlbx/mlx.h"
 #include <math.h>
 
 void	ft_square(void *mlx, void *img, int x, int y, int size)

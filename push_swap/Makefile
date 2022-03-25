@@ -11,7 +11,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 CC		=	gcc
 
-CFLAGS	=
+CFLAGS	= 
 
 NAME	=	push_swap
 

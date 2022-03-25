@@ -75,16 +75,21 @@ lives	**get_struc(lives **tab)
 {
 	int		cmp;
 	lives	cpy;
+	lives	**new;
 
+	new = tab;
+	cmp = 0;
 	for (unsigned int x = 0; x < WINDOW_SIZE; x++)
 	{
 		for (unsigned int y = 0; y < WINDOW_SIZE; y++)
 		{
-			cpy.state = tab[x][y].state;
-			tab[x][y] = get_pos(tab[x][y], x, y, tab);
-			if (cpy.state == tab[x][y].state)
+			printf("test\n");
+			cpy.state = new[x][y].state;
+			new[x][y] = get_pos(new[x][y], x, y, new);
+			if (cpy.state == new[x][y].state)
 				cmp++;
 		}
 	}
-	return (tab);
+	free(tab);
+	return (new);
 }

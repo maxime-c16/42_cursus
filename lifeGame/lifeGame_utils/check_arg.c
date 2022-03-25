@@ -24,3 +24,7 @@ int	check_arg(char **str)
 	}
 	return (1);
 }
+
+//write down a string of 10 '0'
+
+

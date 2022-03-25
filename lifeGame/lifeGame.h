@@ -2,7 +2,7 @@
 
 # define LIFEGAME_H
 
-//# define WINDOW_SIZE 10
+# define WINDOW_SIZE 10
 # define ALIVE_SYMBOL '0'
 # define DEATH_SYMBOL '-'
 

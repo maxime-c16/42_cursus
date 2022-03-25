@@ -81,11 +81,12 @@ char	**ft_cpy_num(char **cpy, t_stack **stack, int size)
 	return (cpy);
 }
 
-void	ft_normalize(t_stack **stack)
+void	ft_sort_stack(t_stack **stack)
 {
+	int		size;
 	int		i;
 	int		j;
-	int		size;
+	int		k;
 	char	**cpy;
 	t_stack	*temp;
 
@@ -102,9 +103,13 @@ void	ft_normalize(t_stack **stack)
 			if (ft_atoi(cpy[i]) == (temp + j)->num)
 				(temp + j)->index = i;
 			j++;
-			//printf("i = %d, j = %d", i, j);
 		}
 		i++;
 	}
+	free(cpy);
 	return ;
 }
+
+//check if i freed my variables
+
+
