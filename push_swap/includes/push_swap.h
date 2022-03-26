@@ -74,5 +74,6 @@ t_stack	*get_max(t_stack **stack);
 void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack *temp1, t_stack *temp2);
 void	quicksort(char	**tab, int low, int high);
 void	ft_normalize(t_stack **stack);
+void	ft_sort_stack(t_stack **stack);
 
 #endif

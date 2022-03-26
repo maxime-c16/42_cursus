@@ -52,6 +52,7 @@ void	ft_parse_fill(t_stack **stack, char *str)
 		ft_lstadd_back(stack, num);
 		i++;
 	}
+	free(split);
 	return ;
 }
 

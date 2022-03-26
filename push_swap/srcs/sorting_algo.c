@@ -61,20 +61,21 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b, \
 	}
 	while ((*stack_a)->num != get_minimum(stack_a))
 		ft_exec_cmd("ra", stack_a, stack_b);
+	return ;
 }
 
 char	**ft_cpy_num(char **cpy, t_stack **stack, int size)
 {
-	t_stack	*temp;
 	int		i;
+	t_stack	*temp;
 
 	i = 0;
 	temp = *stack;
 	cpy = (char **)malloc(sizeof(char *) * (size + 1));
-	while (temp && temp->next)
+	while (i < size)
 	{
-		*cpy = ft_itoa(temp->num);
-		printf("%s\n", *cpy);
+		cpy[i] = ft_itoa(temp->num);
+		printf("%s\n", cpy[i]);
 		temp = temp->next;
 		i++;
 	}
@@ -86,7 +87,6 @@ void	ft_sort_stack(t_stack **stack)
 	int		size;
 	int		i;
 	int		j;
-	int		k;
 	char	**cpy;
 	t_stack	*temp;
 
@@ -109,7 +109,3 @@ void	ft_sort_stack(t_stack **stack)
 	free(cpy);
 	return ;
 }
-
-//check if i freed my variables
-
-

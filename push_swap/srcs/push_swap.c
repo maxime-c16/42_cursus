@@ -31,6 +31,37 @@ void	ft_print_lst(t_stack **stack_a, t_stack **stack_b)
 	return ;
 }
 
+void	ft_free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+	t_stack	*tmp2;
+
+	tmp = *stack;
+	while (tmp)
+	{
+		tmp2 = tmp;
+		tmp = tmp->next;
+		free(tmp2);
+	}
+	return ;
+}
+
+//make a function that print the index of the stack_a one by one
+void	ft_print_index(t_stack **stack_a)
+{
+	t_stack	*tmp;
+
+	tmp = *stack_a;
+	printf ("\nstack a :\n");
+	while (tmp)
+	{
+		printf("%d -> ", tmp->index);
+		tmp = tmp->next;
+	}
+	printf("(null)\n");
+	return ;
+}
+
 void	push_swap(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -46,13 +77,17 @@ void	push_swap(int ac, char **av)
 		ft_exit("Too few arguments...\n", 1);
 	else if (ac == 2)
 		ft_parse_fill(&stack_a, av[1]);
-	else if (ac > 2)
-		ft_parse_int(&stack_a, av, ac);
-	//ft_normalize(&stack_a);
+	//ft_sort_stack(&stack_a);
+	//ft_print_index(&stack_a);
 	radix_sort(&stack_a, &stack_b, temp, temp2);
-	// system("leaks push_swap");
+	ft_free_stack(&stack_a);
+	//system("leaks push_swap");
 	return ;
 }
+
+
+
+
 
 int	main(int ac, char **av)
 {

@@ -20,9 +20,6 @@ void	ft_push(char *cmd, t_stack **stack_a, t_stack **stack_b)
 
 void	ft_del_one(t_stack **stack)
 {
-	t_stack	*tmp;
-
-	tmp = *stack;
 	if (*stack && (*stack)->next)
 	{
 		*stack = (*stack)->next;
