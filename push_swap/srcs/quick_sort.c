@@ -38,13 +38,13 @@ int	ft_pivot(char **tab, int low, int high)
 
 void	quicksort(char	**tab, int low, int high)
 {
-	int	pivotIndex;
+	int	pivot_index;
 
 	if (low < high)
 	{
-		pivotIndex = ft_pivot(tab, low, high);
-		quicksort(tab, low, pivotIndex - 1);
-		quicksort(tab, pivotIndex + 1, high);
+		pivot_index = ft_pivot(tab, low, high);
+		quicksort(tab, low, pivot_index - 1);
+		quicksort(tab, pivot_index + 1, high);
 	}
 	return ;
 }

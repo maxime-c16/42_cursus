@@ -11,7 +11,7 @@ OBJS	=	$(SRCS:.c=.o)
 
 CC		=	gcc
 
-CFLAGS	= 
+CFLAGS	=
 
 NAME	=	push_swap
 
@@ -19,6 +19,19 @@ all		:	$(NAME)
 
 $(NAME)	:	$(OBJS)
 			$(CC) -o $@ $^
+
+target:
+	number=1 ; while [[ $$number -le 111 ]] ; do \
+		ARG=`ruby -e "puts (-$$number...$$number).to_a.shuffle.join(' ')"` ; \
+		./push_swap $$ARG; \
+		((number = number + 10)) ; \
+	done
+
+#generate a list of random numbers using ruby
+
+NUMBERS = `ruby -e "puts (-100...100).to_a.shuffle.join(' ')"`
+doit:
+		./push_swap $$ARG | ./checker_mac $$ARG
 
 clean	:
 			/bin/rm -f $(OBJS)

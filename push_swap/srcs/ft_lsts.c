@@ -11,7 +11,7 @@ void	ft_init_lst(t_stack **stack, long nb)
 	return ;
 }
 
-t_stack	*ft_lstnew(int num)
+t_stack	*ft_lstnew(int num, int index)
 {
 	t_stack	*new;
 
@@ -19,6 +19,7 @@ t_stack	*ft_lstnew(int num)
 	if (new == NULL)
 		ft_exit("Malloc error", 1);
 	new->num = num;
+	new->index = index;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);
@@ -38,12 +39,13 @@ t_stack	*ft_lstlast(t_stack **lst)
 	return (tmp);
 }
 
-void	ft_lstadd_back(t_stack **stack, int nb)
+void	ft_lstadd_back(t_stack **stack, int nb, int index)
 {
 	t_stack	*tmp;
 	t_stack	*cpy;
 
-	tmp = ft_lstnew(nb);
+	tmp = ft_lstnew(nb, index);
+	tmp->index = index;
 	cpy = *stack;
 	if (cpy == NULL)
 		ft_exit("stack is empty\n", 1);

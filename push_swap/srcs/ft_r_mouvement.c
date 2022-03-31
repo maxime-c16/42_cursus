@@ -3,9 +3,11 @@
 void	ft_back_r(t_stack **stack)
 {
 	int		tmp2;
+	int		index;
 
+	index = (*stack)->index;
 	tmp2 = (*stack)->num;
-	ft_lstadd_back(stack, tmp2);
+	ft_lstadd_back(stack, tmp2, index);
 	ft_del_one(stack);
 }
 

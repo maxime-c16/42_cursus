@@ -32,7 +32,10 @@ void	ft_del_one(t_stack **stack)
 
 void	ft_push_stck(t_stack **stack_a, t_stack **stack_b, t_stack *tmp)
 {
+	int	index;
+
 	tmp = NULL;
+	index = (*stack_a)->index;
 	if (!*stack_b && *stack_a)
 	{
 		tmp = *stack_a;
@@ -42,7 +45,7 @@ void	ft_push_stck(t_stack **stack_a, t_stack **stack_b, t_stack *tmp)
 	}
 	else if (*stack_b && *stack_a)
 	{
-		tmp = ft_lstnew((*stack_a)->num);
+		tmp = ft_lstnew((*stack_a)->num, index);
 		ft_lstadd_front(stack_b, tmp);
 		ft_del_one(stack_a);
 	}

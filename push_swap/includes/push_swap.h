@@ -29,12 +29,13 @@ typedef struct s_list
 int		get_size(t_stack **stack);
 int		get_minimum(t_stack **stack);
 t_stack	*ft_lstlast(t_stack **lst);
-t_stack	*ft_lstnew(int num);
-void	ft_lstadd_back(t_stack **stack, int nb);
+t_stack	*ft_lstnew(int num, int index);
+void	ft_lstadd_back(t_stack **stack, int nb, int index);
 void	ft_lstadd_front(t_stack **stack, t_stack *elem);
 void	ft_init_lst(t_stack **stack, long nb);
 void	ft_print_lst(t_stack **stack_a, t_stack **stack_b);
 void	ft_exec_cmd(char *cmd, t_stack **stack_a, t_stack **stack_b);
+void	ft_print_index(t_stack **stack_a);
 
 //parsing functions
 
@@ -43,8 +44,7 @@ int		ft_strcmp(char *s1, char *s2);
 void	ft_check_int(long nb);
 char	**ft_split(char *s, char c);
 void	ft_parse_int(t_stack **stack, char **av, int ac);
-void	ft_parse_fill(t_stack **stack, char *str);
-char	**ft_cpy_num(char **cpy, t_stack **stack, int size);
+char	**ft_parse_fill(t_stack **stack, char *str);
 
 //rotate functions
 
@@ -70,10 +70,9 @@ void	ft_swap_stck(t_stack **stack);
 
 //radix sort
 
-t_stack	*get_max(t_stack **stack);
-void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack *temp1, t_stack *temp2);
-void	quicksort(char	**tab, int low, int high);
+void	radix_sort(t_stack **stack_a, t_stack **stack_b, t_stack *temp1);
 void	ft_normalize(t_stack **stack);
-void	ft_sort_stack(t_stack **stack);
+void	quicksort(char	**tab, int low, int high);
+void	ft_init_index(t_stack **stack, char **cpy);
 
 #endif

@@ -67,27 +67,19 @@ void	push_swap(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	t_stack	*temp;
-	t_stack	*temp2;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	temp = NULL;
-	temp2 = NULL;
 	if (ac < 2)
 		ft_exit("Too few arguments...\n", 1);
 	else if (ac == 2)
-		ft_parse_fill(&stack_a, av[1]);
-	//ft_sort_stack(&stack_a);
-	//ft_print_index(&stack_a);
-	radix_sort(&stack_a, &stack_b, temp, temp2);
+		ft_init_index(&stack_a, ft_parse_fill(&stack_a, av[1]));
+	radix_sort(&stack_a, &stack_b, temp);
 	ft_free_stack(&stack_a);
 	//system("leaks push_swap");
 	return ;
 }
-
-
-
-
 
 int	main(int ac, char **av)
 {

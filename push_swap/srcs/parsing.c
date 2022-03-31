@@ -26,10 +26,38 @@ void	ft_check_db(char **str)
 		}
 		if (nb > 1)
 			ft_exit("Int repetition, check argv\n", 1);
+		i++;
+	}
+	return ;
+}
+
+void	ft_all_checks(char **str)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	ft_check_db(str);
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			if (ft_isdigit(str[i][j]) == 0)
+			{
+				if (str[i][j] == '-' && ft_isdigit(str[i][j + 1]) == 1)
+					j++;
+				else
+					ft_exit("Int error, check argv\n", 1);
+			}
+			else
+				j++;
+		}
+		i++;
 	}
 }
 
-void	ft_parse_fill(t_stack **stack, char *str)
+char	**ft_parse_fill(t_stack **stack, char *str)
 {
 	char	**split;
 	int		i;
@@ -37,23 +65,25 @@ void	ft_parse_fill(t_stack **stack, char *str)
 
 	i = 0;
 	split = ft_split(str, ' ');
+	ft_all_checks(split);
+	ft_check_int(ft_atoi(split[0]));
+	num = ft_atoi(split[i]);
 	if (!split[1])
 	{
 		ft_init_lst(stack, ft_atoi(str));
-		return ;
+		return (split);
 	}
-	num = ft_atoi(split[i]);
 	ft_init_lst(stack, num);
 	i = 1;
 	while (split[i])
 	{
+		ft_check_int(ft_atoi(split[i]));
 		num = ft_atoi(split[i]);
 		ft_check_int(num);
-		ft_lstadd_back(stack, num);
+		ft_lstadd_back(stack, num, 0);
 		i++;
 	}
-	free(split);
-	return ;
+	return (split);
 }
 
 void	ft_parse_int(t_stack **stack, char **av, int ac)
@@ -67,7 +97,7 @@ void	ft_parse_int(t_stack **stack, char **av, int ac)
 	while (++i < ac)
 	{
 		num = (int)ft_atoi(av[i]);
-		ft_lstadd_back(stack, num);
+		ft_lstadd_back(stack, num, 0);
 	}
 	return ;
 }
