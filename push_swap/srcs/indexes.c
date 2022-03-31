@@ -1,52 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   indexes.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/31 21:45:33 by mcauchy           #+#    #+#             */
-/*   Updated: 2022/03/31 21:45:34 by mcauchy          ###   ########.fr       */
+/*   Created: 2022/03/31 21:41:42 by maximecauch       #+#    #+#             */
+/*   Updated: 2022/03/31 21:45:01 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_db_strlen(char **str)
+int	ft_get_index(char **cpy, int num)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-void	ft_putstr_fd(char *s, int fd)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
+	while (cpy[i])
 	{
-		write(fd, &s[i], 1);
+		if (ft_atoi(cpy[i]) == num)
+			return (i);
 		i++;
 	}
-	return ;
+	return (-1);
 }
 
-int	get_minimum(t_stack **stack)
+void	ft_init_index(t_stack **stack, char **cpy)
 {
+	int		size;
 	t_stack	*temp;
-	int		temp2;
 
+	size = get_size(stack);
 	temp = *stack;
-	temp2 = (*stack)->num;
-	while (temp && temp->next)
+	quicksort(cpy, 0, size);
+	while (temp)
 	{
-		if (temp2 > temp->num)
-			temp2 = temp->num;
+		temp->index = ft_get_index(cpy, temp->num);
+		if (temp->index == -1)
+			ft_exit("Error: index not found\n", 1);
 		temp = temp->next;
 	}
-	return (temp2);
 }

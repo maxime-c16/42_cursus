@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/31 21:45:17 by mcauchy           #+#    #+#             */
+/*   Updated: 2022/03/31 21:46:14 by mcauchy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void	ft_exit(char *exit_msg, int exit_code)
@@ -46,22 +58,6 @@ void	ft_free_stack(t_stack **stack)
 	return ;
 }
 
-//make a function that print the index of the stack_a one by one
-void	ft_print_index(t_stack **stack_a)
-{
-	t_stack	*tmp;
-
-	tmp = *stack_a;
-	printf ("\nstack a :\n");
-	while (tmp)
-	{
-		printf("%d -> ", tmp->index);
-		tmp = tmp->next;
-	}
-	printf("(null)\n");
-	return ;
-}
-
 void	push_swap(int ac, char **av)
 {
 	t_stack	*stack_a;
@@ -77,9 +73,9 @@ void	push_swap(int ac, char **av)
 		ft_init_index(&stack_a, ft_parse_fill(&stack_a, av[1]));
 	radix_sort(&stack_a, &stack_b, temp);
 	ft_free_stack(&stack_a);
-	//system("leaks push_swap");
 	return ;
 }
+//system("leaks push_swap");
 
 int	main(int ac, char **av)
 {
