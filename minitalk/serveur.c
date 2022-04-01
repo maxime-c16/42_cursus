@@ -19,14 +19,15 @@ void	main_handler(void)
 	while (1)
 	{
 		pause();
-		if (g_msg.msg_status == 0)
+		if (g_msg.msg_status || g_msg.buffer_overflow)
 		{
-			printf("%s", g_msg.message);
+			write(1, g_msg.message, strlen(g_msg.message));
 			g_msg.byte = 0;
 			g_msg.bit = 1 << 6;
 			if (g_msg.msg_status)
-				printf("\n");
+				write(1, "\n", 1);
 			g_msg.msg_status = 0;
+			g_msg.buffer_overflow = 0;
 		}
 	}
 }
@@ -36,6 +37,7 @@ int	main(void)
 	struct sigaction	action;
 	struct sigaction	tmp;
 
+	action.sa_sigaction = 
 	action.sa_flags = SA_SIGINFO;
 	tmp.sa_flags = SA_SIGINFO;
 	if (sigaction(SIGUSR1, &action, NULL) != 0)

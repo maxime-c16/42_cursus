@@ -49,7 +49,6 @@ void	main_handler(char *PID, char *msg)
 
 int	main(int ac, char **av)
 {
-	(void)av;
 	if (ac > 3)
 	{
 		printf("Arg error, check argv.\n");
