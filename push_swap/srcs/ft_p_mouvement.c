@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_p_mouvement.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maximecauchy <maximecauchy@student.42.f    +#+  +:+       +#+        */
+/*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 21:43:21 by maximecauch       #+#    #+#             */
-/*   Updated: 2022/03/31 21:43:23 by maximecauch      ###   ########.fr       */
+/*   Updated: 2022/04/01 14:00:10 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ void	ft_push(char *cmd, t_stack **stack_a, t_stack **stack_b)
 
 void	ft_del_one(t_stack **stack)
 {
+	t_stack	*tmp;
+
+	tmp = *stack;
 	if (*stack && (*stack)->next)
 	{
 		*stack = (*stack)->next;
@@ -39,6 +42,7 @@ void	ft_del_one(t_stack **stack)
 	}
 	else if (*stack && !(*stack)->next)
 		*stack = NULL;
+	free(tmp);
 	return ;
 }
 
@@ -46,18 +50,15 @@ void	ft_push_stck(t_stack **stack_a, t_stack **stack_b, t_stack *tmp)
 {
 	int	index;
 
-	tmp = NULL;
 	index = (*stack_a)->index;
+	tmp = ft_lstnew((*stack_a)->num, index);
 	if (!*stack_b && *stack_a)
 	{
-		tmp = *stack_a;
-		*stack_a = (*stack_a)->next;
-		*stack_b = tmp;
-		(*stack_b)->next = NULL;
+		(*stack_b) = tmp;
+		ft_del_one(stack_a);
 	}
 	else if (*stack_b && *stack_a)
 	{
-		tmp = ft_lstnew((*stack_a)->num, index);
 		ft_lstadd_front(stack_b, tmp);
 		ft_del_one(stack_a);
 	}

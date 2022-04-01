@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 21:41:42 by maximecauch       #+#    #+#             */
-/*   Updated: 2022/03/31 21:45:01 by mcauchy          ###   ########.fr       */
+/*   Updated: 2022/04/01 13:49:05 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,19 @@ int	ft_get_index(char **cpy, int num)
 	return (-1);
 }
 
+void	ft_free_cpy(char **cpy)
+{
+	int	i;
+
+	i = 0;
+	while (cpy[i])
+	{
+		free(cpy[i]);
+		i++;
+	}
+	free(cpy);
+}
+
 void	ft_init_index(t_stack **stack, char **cpy)
 {
 	int		size;
@@ -41,4 +54,5 @@ void	ft_init_index(t_stack **stack, char **cpy)
 			ft_exit("Error: index not found\n", 1);
 		temp = temp->next;
 	}
+	ft_free_cpy(cpy);
 }

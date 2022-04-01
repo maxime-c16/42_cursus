@@ -1,3 +1,11 @@
+print_norme :
+			@printf "\n----------------------------------------------------------------------\n\n\033[37m"
+			@printf	" \033[47m  \033[0m\033[37m                 [    PUSH_SWAP NORME     ]          "
+			@printf "         \033[0m  \033[47m  \033[0m\n"
+			@printf	"\n----------------------------------------------------------------------\n\n"
+
+
+
 FILES	=	push_swap.c ft_atoi.c checks.c ft_lsts.c ft_r_mouvement.c		\
 			ft_p_mouvement.c parsing.c ft_split_ps.c ft_s_mouvement.c		\
 			cases.c ft_rr_mouvement.c sorting_algo.c utils.c quick_sort.c	\
@@ -19,6 +27,9 @@ all		:	$(NAME)
 
 $(NAME)	:	$(OBJS)
 			$(CC) $(CFLAGS) -o $@ $^
+
+norme	:	print_norme
+	@norminette $(CSRC) $(CHEADER) | sed "s,Norme,${ESC}[38;5;326m&${ESC}[0m," | sed "s/Error/  Error/g" | sed "s,Error,${ESC}[31m&${ESC}[0m,"
 
 doit:
 		./push_swap $$ARG | ./checker_mac $$ARG

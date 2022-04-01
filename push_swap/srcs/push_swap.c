@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 21:45:17 by mcauchy           #+#    #+#             */
-/*   Updated: 2022/03/31 21:46:14 by mcauchy          ###   ########.fr       */
+/*   Updated: 2022/04/01 13:47:57 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ void	push_swap(int ac, char **av)
 	ft_free_stack(&stack_a);
 	return ;
 }
-//system("leaks push_swap");
 
 int	main(int ac, char **av)
 {
 	push_swap(ac, av);
+	system("leaks push_swap");
 	return (0);
 }
