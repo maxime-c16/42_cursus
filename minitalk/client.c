@@ -1,19 +1,25 @@
-#include "includes/minitalk.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   client.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/12 15:57:25 by mcauchy           #+#    #+#             */
+/*   Updated: 2022/04/12 16:01:18 by mcauchy          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_sigusr(int sig)
-{
-	(void)sig;
-	printf("Message received.\n");
-}
+#include "includes/minitalk.h"
 
 void	ft_msg_to_parent(int PID, char c)
 {
 	int	i;
 
-	i = 1 << 6;
-	while (i)
+	i = 7;
+	while (i != -1)
 	{
-		if (c & i)
+		if (c & (1 << i))
 		{
 			if (kill(PID, SIGUSR1) == -1)
 			{
@@ -29,22 +35,24 @@ void	ft_msg_to_parent(int PID, char c)
 				exit(1);
 			}
 		}
-		i = i >> 1;
-		usleep(500);
+		i--;
+		usleep(100);
 	}
 }
 
 void	main_handler(char *PID, char *msg)
 {
 	int	pid;
+	int	i;
 
+	i = 0;
 	pid = atoi(PID);
-	while (*msg)
+	while (msg[i])
 	{
-		ft_msg_to_parent(pid, *msg);
-		msg++;
+		ft_msg_to_parent(pid, msg[i]);
+		i++;
 	}
-	ft_msg_to_parent(pid, *msg);
+	ft_msg_to_parent(pid, '\0');
 }
 
 int	main(int ac, char **av)
@@ -54,7 +62,6 @@ int	main(int ac, char **av)
 		printf("Arg error, check argv.\n");
 		exit(1);
 	}
-	signal(SIGUSR1, ft_sigusr);
 	main_handler(av[1], av[2]);
 	return (0);
 }

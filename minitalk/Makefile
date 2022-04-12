@@ -17,10 +17,10 @@ CLT		=	client
 all		:	$(SRV) $(CLT)
 
 $(SRV)	:	$(SRV_OBJ)
-			$(CC) -fsanitize=address -o $@ $^
+			$(CC)  -o $@ $^
 
 $(CLT)	:	$(CLT_OBJ)
-			$(CC)  -fsanitize=address -o $@ $^
+			$(CC)  -o $@ $^
 
 clean	:
 			/bin/rm -f $(SRV_OBJ)

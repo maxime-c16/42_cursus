@@ -21,10 +21,7 @@ $(NAME)	:	$(OBJS)
 			$(CC) $(CFLAGS) -o $@ $^
 
 norme	:
-	@norminette $(CSRC) $(CHEADER) | sed "s,Norme,${ESC}[38;5;326m&${ESC}[0m," | sed "s/Error/  Error/g" | sed "s,Error,${ESC}[31m&${ESC}[0m,"
-
-doit:
-		./push_swap $$ARG | ./checker_mac $$ARG
+			@norminette $(CSRC) $(CHEADER) | sed "s,Norme,${ESC}[38;5;326m&${ESC}[0m," | sed "s/Error/  Error/g" | sed "s,Error,${ESC}[31m&${ESC}[0m,"
 
 clean	:
 			/bin/rm -f $(OBJS)

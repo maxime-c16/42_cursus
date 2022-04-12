@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "libft/libft.h"
 
 int	ft_strlen(const char *str)
 {
@@ -141,8 +140,32 @@ int	wonders(char **av)
 	return (res);
 }
 
+float	compund_interest(float initial_amount, float interest, int period)
+{
+	int		i;
+	float	res;
+	float	percent;
+	float	real_interest;
+
+	i = 0;
+	res = 0;
+	real_interest = initial_amount;
+	while (i < period)
+	{
+		if (initial_amount > 422)
+			interest = 0.8;
+		percent = interest / 100;
+		res = initial_amount * (1 + percent);
+		printf("real interest %d:\t%f\n", i, (initial_amount - real_interest) * 0.7);
+		initial_amount = res;
+		i++;
+	}
+	printf("real interest:\t%f\n", (initial_amount - real_interest) * 0.7);
+	return (initial_amount * 0.7);
+}
+
 int	main(int ac, char **av)
 {
-	printf("total wonders points:\t%d\n", wonders(av));
+	printf("RESULT =\t%f\n", compund_interest(atof(av[1]), atof(av[2]), atoi(av[3])));
 	return (0);
 }
