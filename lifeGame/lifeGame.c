@@ -14,7 +14,7 @@ int	main(int ac, char **av)
 	printf("\n\n\n\n");
 	sleep(1);
 	i++;
-	while (true)
+	while (1)
 	{
 		printf("\nNombres d'iterations :\t%d\n", i);
 		i++;

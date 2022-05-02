@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 16:00:55 by mcauchy           #+#    #+#             */
-/*   Updated: 2022/04/12 16:00:56 by mcauchy          ###   ########.fr       */
+/*   Updated: 2022/04/29 13:20:24 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # include <string.h>
 # include <stdlib.h>
 # include <stdio.h>
+#include <dlfcn.h>
+#include <execinfo.h>
+
+char		*ft_itoa(int n);
 
 typedef struct s_message
 {
@@ -36,7 +40,5 @@ typedef struct s_message
 t_message	g_msg = {7, 0, 0};
 
 #endif
-
-char		*ft_itoa(int n);
 
 #endif
