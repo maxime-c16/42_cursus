@@ -18,10 +18,10 @@ NAME    =       so_long
 
 HEADER  =       includes/so_long.h
 
-all             :       $(NAME)
+all		:       $(NAME)
 
-$(NAME) :   $(OBJS)
-			$(CC) $^ $(CFLAGS) $(DEBUG) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -g -o $@
+$(NAME) :   	$(OBJS)
+				$(CC) $^ $(CFLAGS) $(DEBUG) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -g -o $@
 
 macos   :       $(OBJS)
 				$(CC) $^ $(CFLAGS) $(DEBUG) -Lmlx -lmlx -framework OpenGL -framework AppKit -o $(NAME)
@@ -39,4 +39,4 @@ re		:       fclean  all
 
 remacos :       fclean  macos
 
-.PHONY  : all clean fclean fclean re
+.PHONY  : 		all clean fclean fclean re

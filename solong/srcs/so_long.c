@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:52:52 by mcauchy           #+#    #+#             */
-/*   Updated: 2022/05/30 15:47:32 by mcauchy          ###   ########.fr       */
+/*   Updated: 2022/05/30 17:53:55 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,35 +39,41 @@ void	ft_free_tab(char **tab)
 
 int	get_size_y(char *map)
 {
-	int	size;
-	int	fd;
+	int		size;
+	int		fd;
+	char	*str;
 
 	size = 0;
 	fd = open(map, O_RDONLY);
-	while (get_next_line(fd) != 0)
+	str = get_next_line(fd);
+	while (str != 0)
+	{
+		free(str);
+		str = get_next_line(fd);
 		size++;
+	}
 	if (fd > 0)
 		close(fd);
+	free(str);
 	return (size);
 }
 
-void	ft_free_sprite(t_sprite *sprite)
+static	void	ft_free_sprite(t_window *win)
 {
-	free(sprite->background);
-	free(sprite->exit);
-	free(sprite->kagugra);
-	free(sprite->wall);
-	free(sprite->masta_playa);
-	free(sprite);
+	mlx_destroy_image(win->mlx_ptr, win->sprite->background);
+	mlx_destroy_image(win->mlx_ptr, win->sprite->masta_playa);
+	mlx_destroy_image(win->mlx_ptr, win->sprite->kagugra);
+	mlx_destroy_image(win->mlx_ptr, win->sprite->exit);
+	free(win->sprite);
 }
 
 void	free_struct(t_window *win)
 {
-	free(win->mlx_ptr);
 	free(win->img_ptr);
-	ft_free_sprite(win->sprite);
+	ft_free_sprite(win);
 	ft_free_tab(win->map);
 	free(win->player);
+	free(win->mlx_ptr);
 	free(win);
 }
 
@@ -108,11 +114,13 @@ t_check	*init_check(void)
 t_window	*init_window(t_window *win, char **map)
 {
 	win->size_x = ft_strlen(map[0]);
-	printf("test taille %d\n", win->size_y);
+	win->player = (t_coord *)malloc(sizeof(t_coord));
 	win->win_ptr = mlx_new_window(win->mlx_ptr, (win->size_x - 1) * 32,
 			win->size_y * 32, win->title);
 	win->x_min = 0;
 	win->y_min = 0;
+	win->player->x = 0;
+	win->player->y = 0;
 	win->img = malloc(sizeof(t_img));
 	win->check = init_check();
 	win->img->size_x = 32;
@@ -167,6 +175,7 @@ int	check_wall_exit_polo(char **tab, int x, int y, t_window *win)
 	else if (tab[y][x] == 'E' && win->polo == 0)
 	{
 		mlx_destroy_window(win->mlx_ptr, win->win_ptr);
+		free_struct(win);
 		exit(0);
 	}
 	return (0);
@@ -174,7 +183,6 @@ int	check_wall_exit_polo(char **tab, int x, int y, t_window *win)
 
 int	key_hook(int keycode, t_window *win)
 {
-	printf("keycode %d\n", keycode);
 	check_keycode(keycode, win);
 	if (keycode == ESCAPE)
 	{
@@ -188,7 +196,7 @@ int	key_hook(int keycode, t_window *win)
 		win->player->x += 1;
 		win->map[win->player->y][win->player->x - 1] = '0';
 		win->map[win->player->y][win->player->x] = 'P';
-		win->player = parse_map_with_xpm(win->map, win->sprite, win);
+		parse_map_with_xpm(win->map, win->sprite, win);
 	}
 	else if (keycode == LEFT_ARROW && !check_wall_exit_polo(win->map,
 			win->player->x - 1, win->player->y, win))
@@ -196,7 +204,7 @@ int	key_hook(int keycode, t_window *win)
 		win->player->x -= 1;
 		win->map[win->player->y][win->player->x + 1] = '0';
 		win->map[win->player->y][win->player->x] = 'P';
-		win->player = parse_map_with_xpm(win->map, win->sprite, win);
+		parse_map_with_xpm(win->map, win->sprite, win);
 	}
 	else if (keycode == UP_ARROW && !check_wall_exit_polo(win->map,
 			win->player->x, win->player->y - 1, win))
@@ -204,7 +212,7 @@ int	key_hook(int keycode, t_window *win)
 		win->player->y -= 1;
 		win->map[win->player->y + 1][win->player->x] = '0';
 		win->map[win->player->y][win->player->x] = 'P';
-		win->player = parse_map_with_xpm(win->map, win->sprite, win);
+		parse_map_with_xpm(win->map, win->sprite, win);
 	}
 	else if (keycode == DOWN_ARROW && !check_wall_exit_polo(win->map,
 			win->player->x, win->player->y + 1, win))
@@ -212,33 +220,31 @@ int	key_hook(int keycode, t_window *win)
 		win->player->y += 1;
 		win->map[win->player->y - 1][win->player->x] = '0';
 		win->map[win->player->y][win->player->x] = 'P';
-		win->player = parse_map_with_xpm(win->map, win->sprite, win);
+		parse_map_with_xpm(win->map, win->sprite, win);
 	}
 	return (0);
 }
 
 int	main(int ac, char **av)
 {
-	t_window	*view;
+	t_window	*win;
 	char		**map;
-	int			fd;
 
 	if (ac != 2)
 		return (0);
 	printf("Setting up macros and variables for OS: %s\n", OS_X);
 	map = NULL;
-	fd = open(av[1], O_RDONLY);
-	view = malloc(sizeof(t_window));
-	view->mlx_ptr = mlx_init();
-	view->title = "so_long";
-	view->fd = fd;
-	view->size_y = get_size_y(av[1]);
-	map = init_map(fd, view);
-	view = init_window(view, map);
-	check_parsed_map(map, view);
-	view->sprite = init_sprite(view);
-	view->player = parse_map_with_xpm(view->map, view->sprite, view);
-	mlx_key_hook(view->win_ptr, key_hook, view);
-	mlx_loop(view->mlx_ptr);
+	win = malloc(sizeof(t_window));
+	win->mlx_ptr = mlx_init();
+	win->title = "so_long";
+	win->fd = open(av[1], O_RDONLY);
+	win->size_y = get_size_y(av[1]);
+	map = init_map(win->fd, win);
+	win = init_window(win, map);
+	check_parsed_map(map, win);
+	win->sprite = init_sprite(win);
+	parse_map_with_xpm(win->map, win->sprite, win);
+	mlx_key_hook(win->win_ptr, key_hook, win);
+	mlx_loop(win->mlx_ptr);
 	return (0);
 }

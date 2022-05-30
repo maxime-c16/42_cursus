@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 03:05:11 by mcauchy           #+#    #+#             */
-/*   Updated: 2022/05/30 01:05:37 by mcauchy          ###   ########.fr       */
+/*   Updated: 2022/05/30 17:03:45 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,27 +68,25 @@ void	check_parsed_map(char **map, t_window *win)
 
 void	put_string(t_window *win)
 {
-	int	size_y;
+	int		size_y;
+	char	*num;
 
 	size_y = win->size_y;
+	num = ft_itoa(win->movement);
 	mlx_put_image_to_window(win->mlx_ptr, win->win_ptr, win->sprite->wall, 0, 0);
-	mlx_string_put(win->mlx_ptr, win->win_ptr, 0, (size_y + 1) * 32, 0xFF00FF, ft_itoa(win->movement));
-	printf("mvmts : %d\n", win->movement);
+	mlx_string_put(win->mlx_ptr, win->win_ptr, win->img->size_x / 2, win->size_x / 2, 0xFFFF00, num);
+	free(num);
 	return ;
 }
 
-t_coord	*parse_map_with_xpm(char **map, t_sprite *sprite, t_window *win)
+void	parse_map_with_xpm(char **map, t_sprite *sprite, t_window *win)
 {
 	int		i;
 	int		j;
-	t_coord	*player;
 
 	i = 0;
 	j = 0;
-	player = (t_coord *)malloc(sizeof(t_coord));
 	win->polo = 0;
-	if (!player)
-		return (NULL);
 	while (map[i])
 	{
 		j = 0;
@@ -99,11 +97,10 @@ t_coord	*parse_map_with_xpm(char **map, t_sprite *sprite, t_window *win)
 					win->win_ptr, sprite->wall, j * 32, i * 32);
 			else if (map[i][j] == 'P')
 			{
-				player->x = j;
-				player->y = i;
-				player->img = sprite->masta_playa;
+				win->player->x = j;
+				win->player->y = i;
 				mlx_put_image_to_window(win->mlx_ptr,
-					win->win_ptr, sprite->masta_playa, j * 32, i * 32);
+					win->win_ptr, win->sprite->masta_playa, j * 32, i * 32);
 			}
 			else if (map[i][j] == 'E')
 			{
@@ -129,5 +126,5 @@ t_coord	*parse_map_with_xpm(char **map, t_sprite *sprite, t_window *win)
 		i++;
 	}
 	put_string(win);
-	return (player);
+	return ;
 }

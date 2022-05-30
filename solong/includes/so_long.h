@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 13:43:48 by mcauchy           #+#    #+#             */
-/*   Updated: 2022/05/30 14:22:56 by mcauchy          ###   ########.fr       */
+/*   Updated: 2022/05/30 17:06:06 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ typedef	struct	s_coord
 {
 	int			x;
 	int			y;
-	t_sprite	*img;
 }				t_coord;
 
 typedef	struct s_check
@@ -94,7 +93,7 @@ typedef struct  s_window
 }				t_window ;
 
 char	*get_next_line(int fd);
-t_coord	*parse_map_with_xpm(char **map, t_sprite *sprite, t_window *win);
+void	parse_map_with_xpm(char **map, t_sprite *sprite, t_window *win);
 void	ft_print_tab(char **tab);
 
 //utils functions
