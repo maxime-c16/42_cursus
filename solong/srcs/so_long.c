@@ -6,7 +6,7 @@
 /*   By: mcauchy <mcauchy@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:52:52 by mcauchy           #+#    #+#             */
-/*   Updated: 2022/05/30 14:58:33 by mcauchy          ###   ########.fr       */
+/*   Updated: 2022/05/30 15:47:32 by mcauchy          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,7 @@ int	check_wall_exit_polo(char **tab, int x, int y, t_window *win)
 
 int	key_hook(int keycode, t_window *win)
 {
+	printf("keycode %d\n", keycode);
 	check_keycode(keycode, win);
 	if (keycode == ESCAPE)
 	{
